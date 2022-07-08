@@ -1,48 +1,78 @@
 import React, { useEffect, useState } from "react";
+import MarsSearchDropDown from "../components/MarsSearchDropDown";
+import { useApi, useUrl } from "../hooks";
+import moment from "moment";
 
 const Neo = () => {
-  const [loading, setLoading] = useState(null);
-  const [photos, setPhotos] = useState([]);
-  const [camera, setCamera] = useState("NAVCAM");
+  const [selectedCamera, setSelectedCamera] = useState("MAST");
 
-  useEffect(() => {
-    setLoading(true);
+  const defaultDate = moment().format("YYYY-MM-DD");
+  const [searchDate, setSearchDate] = useState(defaultDate);
 
-    const FetchMarsData = async () => {
-      const key = "hUaQ4htFc7b07hk6RynOrGN4S6V5wJaTY1xcdDRJ";
-      const params = new URLSearchParams({
-        api_key: key,
-        sol: 1000,
-        camera: "NAVCAM",
-      });
-      const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?${params.toString()}`;
+  const key = "hUaQ4htFc7b07hk6RynOrGN4S6V5wJaTY1xcdDRJ";
+  const sol = 3000;
+  const camera = selectedCamera;
 
-      const res = await fetch(url);
-      const data = await res.json();
+  const url = useUrl(
+    "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos",
+    { api_key: key, sol: sol, camera: selectedCamera }
+  );
 
-      setPhotos(data.photos.slice(0, 25));
-      setLoading(false);
-    };
+  const { data, loading, setLoading } = useApi(url, camera);
 
-    FetchMarsData();
-  }, [camera]);
+  // useEffect(() => {
+  //   setLoading(true);
 
-  const renderPhotos = () => {
-    return (
-      <>
-        {photos.map((photo) => {
-          // console.log(photo);
-          return (
-            <div key={photo.id}>
-              <img src={photo.img_src} />
-            </div>
-          );
-        })}
-      </>
-    );
-  };
+  //   const FetchMarsData = async () => {
+  //     const key = "hUaQ4htFc7b07hk6RynOrGN4S6V5wJaTY1xcdDRJ";
+  //     const params = new URLSearchParams({
+  //       api_key: key,
+  //       sol: 1500,
+  //       camera: "MAST",
+  //     });
+  //     const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?${params.toString()}`;
 
-  return <>{loading ? <div>loading...</div> : renderPhotos()}</>;
+  //     const res = await fetch(url);
+  //     const data = await res.json();
+
+  //     setPhotos(data.photos.slice(0, 25));
+  //     setLoading(false);
+  //   };
+
+  //   FetchMarsData();
+  // }, [camera]);
+
+  // const renderPhotos = data.map((photo) => {
+  //   // console.log(photo);
+  //   return (
+  //     <div key={photo.id}>
+  //       <img src={photo.img_src} />
+  //     </div>
+  //   );
+  // });
+
+  return (
+    <>
+      {loading ? (
+        <div>loading...</div>
+      ) : (
+        <div>
+          <MarsSearchDropDown
+            selected={selectedCamera}
+            setSelected={setSelectedCamera}
+          />
+
+          {data.photos.map((photo) => {
+            return (
+              <div key={photo.id}>
+                <img src={photo.img_src} />
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </>
+  );
 };
 
 export default Neo;

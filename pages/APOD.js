@@ -2,49 +2,19 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import moment from "moment";
+import { useUrl, useApi } from "../hooks";
 
 const APOD = () => {
-  const [loading, setLoading] = useState(true);
-  const [apodData, setApodData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-
   const defaultDate = moment().format("YYYY-MM-DD");
 
-  const key = "hUaQ4htFc7b07hk6RynOrGN4S6V5wJaTY1xcdDRJ";
-  const params = new URLSearchParams({
-    api_key: key,
-    ...(searchTerm ? { date: searchTerm } : { date: defaultDate }),
+  const [searchDate, setSearchDate] = useState(defaultDate);
+
+  const url = useUrl("https://api.nasa.gov/planetary/apod", {
+    api_key: "hUaQ4htFc7b07hk6RynOrGN4S6V5wJaTY1xcdDRJ",
+    date: searchDate,
   });
-  const url = `https://api.nasa.gov/planetary/apod?${params.toString()}`;
 
-  //Whenever searchTerm changes, get api data. If search term is empty, date param = today, otherwise date param = searchTerm.
-  useEffect(() => {
-    const fetchApodData = async () => {
-      setLoading(true);
-
-      const response = await fetch(url);
-      const data = await response.json();
-      console.log(data);
-      setApodData(data);
-
-      setLoading(false);
-    };
-
-    fetchApodData();
-    // axios
-    //   .get("https://api.nasa.gov/planetary/apod", {
-    //     params: {
-    //       api_key: key,
-    //       ...(searchTerm ? { date: searchTerm } : { date: defaultDate }),
-    //     },
-    //   })
-    //   .then((response) => {
-    //     setApodData(response.data);
-
-    //
-    //   console.log("requested");
-    // });
-  }, [searchTerm]);
+  const { loading, setLoading, data } = useApi(url, searchDate);
 
   return (
     <>
@@ -54,16 +24,16 @@ const APOD = () => {
         <div>
           <h2>Astronomy Pic of the Day</h2>
           <SearchBar
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
+            searchTerm={searchDate}
+            setSearchTerm={setSearchDate}
             setLoading={setLoading}
-            defaultDate={defaultDate}
+            defaultTerm={defaultDate}
             loading={loading}
           />
-          <h3>{apodData.title}</h3>
-          <h4>{apodData.date}</h4>
-          <img src={apodData.url} />
-          <p>{apodData.explanation}</p>
+          <h3>{data.title}</h3>
+          <h4>{data.date}</h4>
+          <img src={data.url} />
+          <p>{data.explanation}</p>
         </div>
       )}
     </>

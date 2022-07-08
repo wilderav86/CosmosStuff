@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-const SearchBar = ({ searchTerm, setSearchTerm, setLoading, defaultDate }) => {
+const SearchBar = ({ searchTerm, setSearchTerm, setLoading, defaultTerm }) => {
   ///^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
 
+  console.log(searchTerm);
   const [input, setInput] = useState("");
 
   const handleSubmit = (e) => {
@@ -14,10 +15,8 @@ const SearchBar = ({ searchTerm, setSearchTerm, setLoading, defaultDate }) => {
     if (!input) {
       setLoading(false);
     } else {
-      setSearchTerm(defaultDate);
+      setSearchTerm(defaultTerm);
     }
-
-    console.log(searchTerm);
   };
 
   return (
