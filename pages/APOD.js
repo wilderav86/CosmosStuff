@@ -1,8 +1,9 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import moment from "moment";
 import { useUrl, useApi } from "../hooks";
+import Image from "next/image";
 
 const APOD = () => {
   const defaultDate = moment().format("YYYY-MM-DD");
@@ -15,6 +16,10 @@ const APOD = () => {
   });
 
   const { loading, setLoading, data } = useApi(url, searchDate);
+
+  const imageLoader = ({ src, width, quality }) => {
+    return `${src}?w=${width}&q=${quality || 75}`;
+  };
 
   return (
     <>
@@ -32,7 +37,14 @@ const APOD = () => {
           />
           <h3>{data.title}</h3>
           <h4>{data.date}</h4>
-          <img src={data.url} />
+          {/* <img src={data.url} /> */}
+          <Image
+            loader={imageLoader}
+            src={data.url}
+            alt="NASA Picture"
+            width={800}
+            height={800}
+          />
           <p>{data.explanation}</p>
         </div>
       )}

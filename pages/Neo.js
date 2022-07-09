@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import MarsSearchDropDown from "../components/MarsSearchDropDown";
 import { useApi, useUrl } from "../hooks";
 import moment from "moment";
+import Image from "next/image";
 
 const Neo = () => {
-  const [selectedCamera, setSelectedCamera] = useState("MAST");
+  const [selectedCamera, setSelectedCamera] = useState("NAVCAM_LEFT");
 
   const defaultDate = moment().format("YYYY-MM-DD");
   const [searchDate, setSearchDate] = useState(defaultDate);
@@ -27,6 +28,10 @@ const Neo = () => {
   );
 
   const { data, loading, setLoading } = useApi(url, camera);
+
+  const imageLoader = ({ src, width, quality }) => {
+    return `${src}?w=${width}&q=${quality || 75}`;
+  };
 
   // useEffect(() => {
   //   setLoading(true);
@@ -73,7 +78,14 @@ const Neo = () => {
           {data.photos.map((photo) => {
             return (
               <div key={photo.id}>
-                <img src={photo.img_src} />
+                {/* <img src={photo.img_src} /> */}
+                <Image
+                  loader={imageLoader}
+                  src={photo.img_src}
+                  alt="NASA Picture"
+                  width={800}
+                  height={800}
+                />
               </div>
             );
           })}
