@@ -61,14 +61,18 @@ const MarsSearchDropDown = ({ selected, setSelected }) => {
     // },
   ];
 
-  const renderOptions = cameraOptions.map((option) => {
-    return <option value={option.cameraCode}>{option.cameraName}</option>;
+  const renderOptions = cameraOptions.map((option, key) => {
+    return (
+      <option value={option.cameraCode} key={key}>
+        {option.cameraName}
+      </option>
+    );
   });
 
   return (
     <div className="dropdown-container">
       <form>
-        <label for="camera">Choose a camera</label>
+        <label htmlFor="camera">Choose a camera</label>
         <select
           onChange={(e) => setSelected(e.target.value)}
           value={selected}
