@@ -10,11 +10,19 @@ const Neo = () => {
   const [searchDate, setSearchDate] = useState(defaultDate);
 
   const key = "hUaQ4htFc7b07hk6RynOrGN4S6V5wJaTY1xcdDRJ";
-  const sol = 3000;
+  const sol = 2;
   const camera = selectedCamera;
 
+  const roverInfoUrl = useUrl(
+    "https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/",
+    { api_key: key }
+  );
+
+  const { roverInfo } = useApi(roverInfoUrl);
+  console.log(roverInfo);
+
   const url = useUrl(
-    "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos",
+    "https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos",
     { api_key: key, sol: sol, camera: selectedCamera }
   );
 

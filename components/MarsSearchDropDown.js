@@ -2,7 +2,7 @@ import { useApi, useUrl } from "../hooks";
 
 const MarsSearchDropDown = ({ selected, setSelected }) => {
   const url = useUrl(
-    "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/",
+    "https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/",
     { api_key: "hUaQ4htFc7b07hk6RynOrGN4S6V5wJaTY1xcdDRJ" }
   );
 
@@ -12,25 +12,53 @@ const MarsSearchDropDown = ({ selected, setSelected }) => {
 
   const cameraOptions = [
     {
-      cameraCode: "RHAZ",
-      cameraName: "Rear Hazard Avoidance Camera",
+      cameraCode: "NAVCAM_LEFT",
+      cameraName: "Navigation Camera - Left",
     },
     {
-      cameraCode: "MAST",
-      cameraName: "	Mast Camera",
+      cameraCode: "NAVCAM_RIGHT",
+      cameraName: "Navigation Camera - Right",
     },
     {
-      cameraCode: "CHEMCAM",
-      cameraName: "Chemistry and Camera Complex",
+      cameraCode: "MCZ_RIGHT",
+      cameraName: "Mast Camera Zoom - Right",
     },
     {
-      cameraCode: "MAHLI",
-      cameraName: "Mars Hand Lens Imager",
+      cameraCode: "MCZ_LEFT",
+      cameraName: "Mast Camera Zoom - Left",
     },
     {
-      cameraCode: "NAVCAM",
-      cameraName: "Navigation Camera",
+      cameraCode: "FRONT_HAZCAM_LEFT_A",
+      cameraName: "Front Hazard Avoidance Camera - Left",
     },
+    {
+      cameraCode: "FRONT_HAZCAM_RIGHT_A",
+      cameraName: "Front Hazard Avoidance Camera - Right",
+    },
+    {
+      cameraCode: "SKYCAM",
+      cameraName: "MEDA Skycam",
+    },
+    // {
+    //   cameraCode: "RHAZ",
+    //   cameraName: "Rear Hazard Avoidance Camera",
+    // },
+    // {
+    //   cameraCode: "MAST",
+    //   cameraName: "	Mast Camera",
+    // },
+    // {
+    //   cameraCode: "CHEMCAM",
+    //   cameraName: "Chemistry and Camera Complex",
+    // },
+    // {
+    //   cameraCode: "MAHLI",
+    //   cameraName: "Mars Hand Lens Imager",
+    // },
+    // {
+    //   cameraCode: "NAVCAM",
+    //   cameraName: "Navigation Camera",
+    // },
   ];
 
   const renderOptions = cameraOptions.map((option) => {
