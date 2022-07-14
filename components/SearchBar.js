@@ -1,10 +1,23 @@
 import React, { useState } from "react";
 
-const SearchBar = ({ searchTerm, setSearchTerm, setLoading, defaultTerm }) => {
-  ///^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
+const SearchBar = ({
+  searchTerm,
+  setSearchTerm,
+  setLoading,
+  defaultTerm,
+  data,
+}) => {
+  console.log(data);
 
-  console.log(searchTerm);
   const [input, setInput] = useState("");
+
+  const maxDate = new Date().toISOString().slice(0, 10);
+
+  if (data) {
+    const maxSol = data.rover.max_sol;
+  }
+
+  console.log(maxSol);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,16 +32,23 @@ const SearchBar = ({ searchTerm, setSearchTerm, setLoading, defaultTerm }) => {
     }
   };
 
+  //If default term is a string...do something.
+  const checkType = typeof defaultTerm === "string";
+
+  console.log(typeof input);
+
   return (
     <div className="search-bar ui segment">
       <form onSubmit={handleSubmit} className="ui form">
         <div className="field">
-          <label>Search Date</label>
+          <label>{checkType ? "Search Data" : "Sol Search"}</label>
           <input
-            type="text"
+            type={checkType ? "data" : "text"}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="YYYY-MM-DD"
+            placeholder={checkType ? "YYYY-MM-DD" : "Enter Sol"}
+            min={checkType ? "1995-06-16" : "1"}
+            max={checkType ? maxDate : maxSol}
           />
         </div>
         <button onSubmit={handleSubmit}>Submit</button>
@@ -39,3 +59,5 @@ const SearchBar = ({ searchTerm, setSearchTerm, setLoading, defaultTerm }) => {
 };
 
 export default SearchBar;
+
+//1995-06-16

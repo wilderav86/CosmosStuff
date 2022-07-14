@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import moment from "moment";
@@ -20,6 +19,8 @@ const APOD = () => {
   const imageLoader = ({ src, width, quality }) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
+
+  console.log(data);
 
   return (
     <>

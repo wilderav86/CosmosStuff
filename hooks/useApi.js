@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useApi = (url, dependencies) => {
+export const useApi = (urls, dependencies) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -8,16 +8,34 @@ export const useApi = (url, dependencies) => {
     const fetchData = async () => {
       setLoading(true);
 
-      const response = await fetch(url);
-      const json = await response.json();
+      console.log(urls);
+      //If urls is passed as an array, iterate over them and fetch data.
+      //Add data from each url to promises array, then set data state to promises array
+      if (Array.isArray(urls)) {
+        const promises = [];
 
-      setData(json);
+        for await (const url of urls) {
+          const response = await fetch(url);
+          const json = await response.json();
+          promises.push(json);
+        }
+
+        setData(promises);
+      }
+
+      //If urls is passed as single url, fetch like normal
+      else {
+        const response = await fetch(urls);
+        const json = await response.json();
+
+        setData(json);
+      }
 
       setLoading(false);
     };
 
     fetchData();
-  }, [dependencies]);
+  }, [...dependencies]);
 
-  return { loading, setLoading, data };
+  return { data, loading, setLoading };
 };
