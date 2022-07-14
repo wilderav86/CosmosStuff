@@ -12,10 +12,9 @@ const Neo = () => {
   //Used for MarsSearch Searchbar Component
 
   const [sol, setSol] = useState(1);
+
   //Fetch parameters
   const key = "hUaQ4htFc7b07hk6RynOrGN4S6V5wJaTY1xcdDRJ";
-
-  const camera = "NAVCAM_LEFT";
 
   const roverInfoUrl = useUrl(
     "https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/",
@@ -37,8 +36,12 @@ const Neo = () => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
 
-  console.log("neodata", data);
   const [marsPhotos, roverData] = data;
+
+  //Photo error handling
+
+  const photoArrayEmpty =
+    "Oops. It doesn't look like this camera was used on this sol.";
 
   return (
     <>
@@ -59,19 +62,23 @@ const Neo = () => {
               <div>Current Sol: {sol}</div>
             </div>
             <div>
-              {marsPhotos.photos.map((photo) => {
-                return (
-                  <div key={photo.id}>
-                    <Image
-                      loader={imageLoader}
-                      src={photo.img_src}
-                      alt="NASA Picture"
-                      width={800}
-                      height={800}
-                    />
-                  </div>
-                );
-              })}
+              {marsPhotos.photos.length == 0 ? (
+                <div>{photoArrayEmpty}</div>
+              ) : (
+                marsPhotos.photos.map((photo) => {
+                  return (
+                    <div key={photo.id}>
+                      <Image
+                        loader={imageLoader}
+                        src={photo.img_src}
+                        alt="NASA Picture"
+                        width={800}
+                        height={800}
+                      />
+                    </div>
+                  );
+                })
+              )}
             </div>
           </>
         )}

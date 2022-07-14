@@ -48,7 +48,7 @@ const SearchBar = ({
             onChange={(e) => setInput(e.target.value)}
             placeholder={checkType ? "YYYY-MM-DD" : "Enter Sol"}
             min={checkType ? "1995-06-16" : "1"}
-            max={checkType ? maxDate : maxSol}
+            max={checkType ? maxDate : data.rover.max_sol}
           />
         </div>
         <button onSubmit={handleSubmit}>Submit</button>
