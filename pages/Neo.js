@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import MarsSearch from "../components/MarsSearch";
 import { useApi, useUrl } from "../hooks";
-import moment from "moment";
 import Image from "next/image";
 
 const Neo = () => {
   //Used for MarsSearch Dropdown component
   const [selectedCamera, setSelectedCamera] = useState("NAVCAM_LEFT");
-  console.log(selectedCamera);
 
   //Used for MarsSearch Searchbar Component
-
   const [sol, setSol] = useState(1);
 
   //Fetch parameters
@@ -39,7 +36,6 @@ const Neo = () => {
   const [marsPhotos, roverData] = data;
 
   //Photo error handling
-
   const photoArrayEmpty =
     "Oops. It doesn't look like this camera was used on this sol.";
 
@@ -62,7 +58,7 @@ const Neo = () => {
               <div>Current Sol: {sol}</div>
             </div>
             <div>
-              {marsPhotos.photos.length == 0 ? (
+              {!marsPhotos.photos.length ? (
                 <div>{photoArrayEmpty}</div>
               ) : (
                 marsPhotos.photos.map((photo) => {

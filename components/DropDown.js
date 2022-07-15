@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 const DropDown = ({ options, label, selected, setSelected }) => {
   const renderOptions = options.map((option, key) => {
     return (
-      <option value={option.cameraCode} key={key}>
-        {option.cameraName}
+      <option value={option.name} key={key}>
+        {option.full_name}
       </option>
     );
   });
