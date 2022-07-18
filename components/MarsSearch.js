@@ -1,6 +1,7 @@
 import { useApi, useUrl } from "../hooks";
 import SearchBar from "./SearchBar";
 import DropDown from "./DropDown";
+import { useState } from "react";
 
 const MarsSearch = ({
   selectedCamera,
@@ -15,7 +16,26 @@ const MarsSearch = ({
 
   const { cameras } = roverData.rover;
 
-  const defaultSol = roverData.rover.max_sol;
+  //SearchBar props
+  const maxSol = roverData.rover.max_sol;
+  const minSol = 1;
+  const valid = sol >= minSol && sol <= maxSol;
+  console.log(sol);
+
+  //Functions
+  const handlePrevious = () => {
+    if (sol > 1) {
+      setSol(parseInt(sol) - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (sol < maxSol) {
+      setSol(parseInt(sol) + 1);
+    }
+  };
+
+  console.log(typeof sol);
 
   return (
     <>
@@ -26,11 +46,24 @@ const MarsSearch = ({
           setSelected={setSelectedCamera}
           label={dropdownLabel}
         />
+
         <SearchBar
-          defaultTerm={defaultSol}
+          defaultTerm={maxSol}
           setSearchTerm={setSol}
-          data={roverData}
+          valid={valid}
+          invalidMessage={`Invalid Sol Value! ${sol} is not within the search range`}
+          type="number"
+          min={minSol}
+          max={maxSol}
         />
+      </div>
+      <div>
+        <button onClick={handlePrevious} disabled={sol == 1 ? true : false}>
+          Previous
+        </button>
+        <button onClick={handleNext} disabled={sol == maxSol ? true : false}>
+          Next
+        </button>
       </div>
     </>
   );

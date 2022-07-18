@@ -9,18 +9,24 @@ const APOD = () => {
 
   const [searchDate, setSearchDate] = useState(defaultDate);
 
+  //Fetch Data
   const url = useUrl("https://api.nasa.gov/planetary/apod", {
     api_key: "hUaQ4htFc7b07hk6RynOrGN4S6V5wJaTY1xcdDRJ",
     date: searchDate,
   });
 
-  const { loading, setLoading, data } = useApi(url, searchDate);
+  const { loading, setLoading, data } = useApi(url, [searchDate]);
 
+  //SearchBar props
+
+  const maxDate = new Date().toISOString().slice(0, 10);
+  const minDate = new Date(1995, 6, 16).toISOString().slice(0, 10);
+  const valid = searchDate >= minDate && searchDate <= maxDate;
+
+  //Next/Image loader
   const imageLoader = ({ src, width, quality }) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
-
-  console.log(data);
 
   return (
     <>
@@ -35,6 +41,11 @@ const APOD = () => {
             setLoading={setLoading}
             defaultTerm={defaultDate}
             loading={loading}
+            min={minDate}
+            max={maxDate}
+            valid={valid}
+            invalidMessage={`Please choose a date between ${minDate} and ${maxDate}`}
+            type={"date"}
           />
           <h3>{data.title}</h3>
           <h4>{data.date}</h4>

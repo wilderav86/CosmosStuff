@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+////NOTE: DEPENDENCIES ARGUMENT MUST BE PASSED AS ARRAY.
 export const useApi = (urls, dependencies) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -8,7 +9,6 @@ export const useApi = (urls, dependencies) => {
     const fetchData = async () => {
       setLoading(true);
 
-      console.log(urls);
       //If urls is passed as an array, iterate over them and fetch data.
       //Add data from each url to promises array, then set data state to promises array
       if (Array.isArray(urls)) {

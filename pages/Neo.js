@@ -5,10 +5,11 @@ import Image from "next/image";
 
 const Neo = () => {
   //Used for MarsSearch Dropdown component
-  const [selectedCamera, setSelectedCamera] = useState("NAVCAM_LEFT");
+  const [selectedCamera, setSelectedCamera] = useState("FRONT_HAZCAM_LEFT_A");
 
   //Used for MarsSearch Searchbar Component
-  const [sol, setSol] = useState(1);
+  const defaultSol = 1;
+  const [sol, setSol] = useState(defaultSol);
 
   //Fetch parameters
   const key = "hUaQ4htFc7b07hk6RynOrGN4S6V5wJaTY1xcdDRJ";
@@ -34,7 +35,7 @@ const Neo = () => {
   };
 
   const [marsPhotos, roverData] = data;
-
+  console.log(roverData);
   //Photo error handling
   const photoArrayEmpty =
     "Oops. It doesn't look like this camera was used on this sol.";
@@ -55,7 +56,10 @@ const Neo = () => {
                 loading={loading}
                 roverData={roverData}
               />
-              <div>Current Sol: {sol}</div>
+              <div>
+                <p>Maximum searchable Sol: {roverData.rover.max_sol}</p>
+                <p>Current Sol: {sol}</p>
+              </div>
             </div>
             <div>
               {!marsPhotos.photos.length ? (
