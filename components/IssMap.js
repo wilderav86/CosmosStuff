@@ -10,7 +10,7 @@ const IssMap = () => {
     zoom: 0,
   });
 
-  const url = "http://api.open-notify.org/iss-now.json";
+  const url = "http://api.open-notify.org/iss-now.json/";
 
   const [issLocation, setIssLocation] = useState({});
   const [loading, setLoading] = useState(true);
