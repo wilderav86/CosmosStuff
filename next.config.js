@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     domains: ["https://api.nasa.gov"],
   },
+  env: {
+    NEXT_PUBLIC_MAXBOX_TOKEN: process.env.NEXT_PUBLIC_MAXBOX_TOKEN,
+  },
 };
 
 module.exports = nextConfig;
