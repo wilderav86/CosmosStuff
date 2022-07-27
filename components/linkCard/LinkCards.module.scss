@@ -14,6 +14,8 @@
 
 .link {
   @include mixins.flex(row, space-around, center);
+  margin: 1rem;
+  padding: 1rem;
 }
 
 .btn {

@@ -31,6 +31,10 @@ export default function Home() {
           src="/homeBG.jpg"
           alt="cosmos background"
           layout="fill"
+          objectFit="cover"
+          blurDataURL="/homeBG.jpg"
+          placeholder="blur"
+          quality={60}
           priority
         />
 
@@ -39,7 +43,7 @@ export default function Home() {
           <h2 className={styles.description}>
             an aggregate of cool space info
           </h2>
-          <h4>what would you like to see?</h4>
+          <h3>what would you like to see?</h3>
           <LinkCards links={links} />
           {/* <div className={styles.pageLinks}>
 
