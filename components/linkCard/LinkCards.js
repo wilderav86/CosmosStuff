@@ -4,9 +4,9 @@ import styles from "./LinkCards.module.scss";
 const LinkCards = ({ links }) => {
   console.log(links);
 
-  const renderLinks = links.map((link, id) => {
+  const renderLinks = links.map((link, key) => {
     return (
-      <div className={styles.link}>
+      <div className={styles.link} key={key}>
         <Link href={link.href}>
           <button className={styles.btn}>
             <a className={styles.title}>{link.title}</a>

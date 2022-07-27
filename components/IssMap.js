@@ -37,10 +37,10 @@ const IssMap = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const renderDotStream = dotStream.map((dot) => {
+  const renderDotStream = dotStream.map((dot, key) => {
     console.log(dot);
     return (
-      <Marker longitude={dot.lon} latitude={dot.lat} anchor="bottom">
+      <Marker longitude={dot.lon} latitude={dot.lat} key={key} anchor="bottom">
         <p style={{ color: "white" }}>.</p>
       </Marker>
     );
@@ -67,7 +67,7 @@ const IssMap = () => {
               latitude={issData.latitude}
               anchor="bottom"
             >
-              <Image src="/ISS_01b.svg" height="60" width="60" />
+              <Image src="/ISS_01b.svg" height="60" width="60" alt="ISS icon" />
             </Marker>
           </>
         )}
