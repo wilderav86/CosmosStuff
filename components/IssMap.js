@@ -4,6 +4,8 @@ import Image from "next/image";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 const IssMap = () => {
+  const [dotStream, setdotStream] = useState([]);
+
   const [viewState, setViewState] = useState({
     longitude: -100,
     latitude: 40,
@@ -20,7 +22,10 @@ const IssMap = () => {
       const response = await fetch(url);
       const json = await response.json();
       setIssData(json);
-      console.log(json);
+      setdotStream((prevDotStream) => [
+        ...prevDotStream,
+        { lat: json.latitude, lon: json.longitude },
+      ]);
       setLoading(false);
     };
 
@@ -28,9 +33,18 @@ const IssMap = () => {
 
     const interval = setInterval(() => {
       fetchIssData();
-    }, 1000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  const renderDotStream = dotStream.map((dot) => {
+    console.log(dot);
+    return (
+      <Marker longitude={dot.lon} latitude={dot.lat} anchor="bottom">
+        <p style={{ color: "white" }}>.</p>
+      </Marker>
+    );
+  });
 
   return (
     <div>
@@ -47,14 +61,17 @@ const IssMap = () => {
         onMove={(evt) => setViewState(evt.viewState)}
       >
         {!loading && (
-          <Marker
-            longitude={issData.longitude}
-            latitude={issData.latitude}
-            anchor="bottom"
-          >
-            <Image src="/ISS_01b.svg" height="60" width="60" />
-          </Marker>
+          <>
+            <Marker
+              longitude={issData.longitude}
+              latitude={issData.latitude}
+              anchor="bottom"
+            >
+              <Image src="/ISS_01b.svg" height="60" width="60" />
+            </Marker>
+          </>
         )}
+        {renderDotStream}
       </Map>
     </div>
   );

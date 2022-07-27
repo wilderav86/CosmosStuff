@@ -16,7 +16,8 @@
     "next-compose-plugins": "^2.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-map-gl": "^7.0.17"
+    "react-map-gl": "^7.0.17",
+    "sass": "^1.54.0"
   },
   "devDependencies": {
     "eslint": "8.9.0",

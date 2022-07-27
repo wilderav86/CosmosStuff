@@ -1,7 +1,5 @@
-import { useApi, useUrl } from "../hooks";
 import SearchBar from "./SearchBar";
 import DropDown from "./DropDown";
-import { useState } from "react";
 
 const MarsSearch = ({
   selectedCamera,
@@ -20,7 +18,6 @@ const MarsSearch = ({
   const maxSol = roverData.rover.max_sol;
   const minSol = 1;
   const valid = sol >= minSol && sol <= maxSol;
-  console.log(sol);
 
   //Functions
   const handlePrevious = () => {

@@ -1,0 +1,33 @@
+@use "/styles/variables/mixins";
+@use "/styles/variables/colors";
+@use "/styles/variables/fonts";
+
+.links {
+  @include mixins.flex(row, center, center);
+  flex-wrap: wrap;
+
+  a,
+  p {
+    color: colors.$bright;
+  }
+}
+
+.link {
+  @include mixins.flex(row, space-around, center);
+}
+
+.btn {
+  background-color: colors.$darkGreen;
+  width: 20rem;
+  height: 15rem;
+  border: none;
+  border-radius: 3rem;
+}
+
+.title {
+  @include mixins.font(fonts.$roboto, 2rem);
+}
+
+.desc {
+  @include mixins.font(fonts.$nunito, 1rem);
+}

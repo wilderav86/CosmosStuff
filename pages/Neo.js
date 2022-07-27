@@ -29,13 +29,15 @@ const Neo = () => {
     [selectedCamera, sol]
   );
 
+  console.log(data);
+
   //Next Image Loader
   const imageLoader = ({ src, width, quality }) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
 
   const [marsPhotos, roverData] = data;
-  console.log(roverData);
+
   //Photo error handling
   const photoArrayEmpty =
     "Oops. It doesn't look like this camera was used on this sol.";

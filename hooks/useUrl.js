@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-//params must be passed as objects
+//searchParams must be passed as objects
 const createUrl = (href, searchParams) => {
   const url = new URL(href);
 
