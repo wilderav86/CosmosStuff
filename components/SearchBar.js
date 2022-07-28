@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "../styles/components/SearchBar.module.scss";
 
 const SearchBar = ({
   setSearchTerm,
@@ -22,11 +23,12 @@ const SearchBar = ({
   };
 
   return (
-    <div className="search-bar ui segment">
+    <div>
       <form onSubmit={handleSubmit} className="ui form">
-        <div className="field">
-          <label>{label}</label>
+        <div className={styles.container}>
+          <label className={styles.label}>{label}</label>
           <input
+            className={styles.field}
             required
             type={type}
             value={input}
@@ -35,7 +37,7 @@ const SearchBar = ({
             min={min}
             max={max}
           />
-          <button type="submit" disabled={!valid}>
+          <button className={styles.btn} type="submit" disabled={!valid}>
             Submit
           </button>
         </div>

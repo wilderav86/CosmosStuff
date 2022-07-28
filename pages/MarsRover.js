@@ -3,7 +3,9 @@ import MarsSearch from "../components/MarsSearch";
 import { useApi, useUrl } from "../hooks";
 import Image from "next/image";
 
-const Neo = () => {
+import styles from "../styles/pages/MarsRover.module.scss";
+
+const MarsRover = () => {
   //Used for MarsSearch Dropdown component
   const [selectedCamera, setSelectedCamera] = useState("FRONT_HAZCAM_LEFT_A");
 
@@ -29,8 +31,6 @@ const Neo = () => {
     [selectedCamera, sol]
   );
 
-  console.log(data);
-
   //Next Image Loader
   const imageLoader = ({ src, width, quality }) => {
     return `${src}?w=${width}&q=${quality || 75}`;
@@ -48,7 +48,8 @@ const Neo = () => {
         {loading ? (
           <div>loading...</div>
         ) : (
-          <>
+          <div className={styles.container}>
+            <h2 className={styles.title}>MARS ROVER PHOTOS</h2>
             <div>
               <MarsSearch
                 selectedCamera={selectedCamera}
@@ -82,11 +83,11 @@ const Neo = () => {
                 })
               )}
             </div>
-          </>
+          </div>
         )}
       </div>
     </>
   );
 };
 
-export default Neo;
+export default MarsRover;

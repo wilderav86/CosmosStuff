@@ -1,0 +1,28 @@
+@use "/styles/variables/mixins";
+@use "/styles/variables/colors";
+@use "/styles/variables/fonts";
+
+.label {
+}
+
+.field {
+  @include mixins.font(fonts.$nunito, 1.2rem);
+  text-align: center;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  background-color: colors.$bright;
+  color: colors.$medium;
+  height: 3rem;
+  width: 14rem;
+}
+
+.btn {
+  @include mixins.font(fonts.$nunito, 1.2rem);
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  background-color: colors.$light;
+  color: colors.$bright;
+  height: 3rem;
+  width: 6rem;
+  cursor: pointer;
+}

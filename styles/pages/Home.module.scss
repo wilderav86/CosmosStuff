@@ -2,15 +2,18 @@
 @use "/styles/variables/colors";
 @use "/styles/variables/fonts";
 
-.flexColumn {
-  @include mixins.flex(column, center, center);
+.bannerContainer {
+  @include mixins.flex(column, space-around, center);
   position: relative;
-  height: 100vh;
+
   width: 100vw;
 }
 
 .app {
+  position: relative;
+  z-index: 1;
   height: 100vh;
+  background-color: colors.$dark;
 }
 
 .bgImage {
@@ -18,23 +21,35 @@
   z-index: -1;
 }
 
+.header {
+  @include mixins.font(fonts.$roboto, 7rem);
+  color: colors.$bright;
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
+.description {
+  @include mixins.font(fonts.$nunito, 2rem);
+  color: colors.$bright;
+  margin-top: 0;
+  border-top: 2px solid colors.$bright;
+  text-align: center;
+}
+
+.body {
+  @include mixins.flex(column, space-around, center);
+  background-color: colors.$dark;
+}
+
 .titleText {
   z-index: 2;
-  h1,
+
   h2,
   h3,
   a {
     color: colors.$bright;
     text-align: center;
   }
-}
-
-.header {
-  @include mixins.font(fonts.$roboto, 8rem);
-}
-
-.description {
-  @include mixins.font(fonts.$nunito, 3rem);
 }
 
 // .container {

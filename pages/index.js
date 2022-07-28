@@ -10,59 +10,52 @@ export default function Home() {
       title: "Astronomy Picture of the Day",
       desc: "Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.",
       href: "/APOD",
+      image: "/observatory.jpg",
+      alt: "apod image",
     },
     {
       title: "Mars Rover Photos",
       desc: "Browse photos taken by the Perseverence Rover. Updated Daily!",
-      href: "/Neo",
+      href: "/MarsRover",
+      image: "/marsRover.jpg",
+      alt: "rover image",
     },
     {
       title: "International Space Station Tracker",
       desc: "Want to know where the ISS is right now?",
       href: "/Maps",
+      image: "/iss.jpg",
+      alt: "iss image",
     },
   ];
 
   return (
     <div className={styles.app}>
-      <div className={styles.flexColumn}>
-        <Image
-          className={styles.bgImage}
-          src="/homeBG.jpg"
-          alt="cosmos background"
-          layout="fill"
-          objectFit="cover"
-          blurDataURL="/homeBG.jpg"
-          placeholder="blur"
-          quality={60}
-          priority
-        />
-
-        <div className={styles.titleText}>
+      <div className={styles.bannerContainer}>
+        <div>
+          <Image
+            className={styles.bgImage}
+            src="/homeBG.jpg"
+            alt="cosmos background"
+            layout="fill"
+            objectFit="cover"
+            blurDataURL="/homeBG.jpg"
+            placeholder="blur"
+            quality={60}
+            priority
+          />
+        </div>
+        <div className={styles.bannerText}>
           <h1 className={styles.header}>COSMOS STUFF</h1>
           <h2 className={styles.description}>
             an aggregate of cool space info
           </h2>
+        </div>
+      </div>
+      <div className={styles.body}>
+        <div className={styles.titleText}>
           <h3>what would you like to see?</h3>
           <LinkCards links={links} />
-          {/* <div className={styles.pageLinks}>
-
-            <div>
-              <Link href="/APOD">
-                <a>Astronomy Pic of the Day</a>
-              </Link>
-            </div>
-            <div>
-              <Link href="/Neo">
-                <a>Mars Rover Photos</a>
-              </Link>
-            </div>
-            <div>
-              <Link href="/Maps">
-                <a>Maps</a>
-              </Link>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>

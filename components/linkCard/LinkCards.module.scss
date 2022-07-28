@@ -13,23 +13,67 @@
 }
 
 .link {
-  @include mixins.flex(row, space-around, center);
+  // @include mixins.flex(row, space-around, center);
   margin: 1rem;
   padding: 1rem;
 }
 
 .btn {
-  background-color: colors.$darkGreen;
-  width: 20rem;
-  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // background-color: colors.$light;
+  width: 22rem;
+  height: 18rem;
   border: none;
   border-radius: 3rem;
+  cursor: pointer;
+}
+
+.titleContainer {
+  height: 30%;
+  width: 100%;
+  border-top-left-radius: 2.5rem;
+  border-top-right-radius: 2.5rem;
+  background-color: colors.$medium;
+}
+
+.descContainer {
+  position: relative;
+  height: 70%;
 }
 
 .title {
-  @include mixins.font(fonts.$roboto, 2rem);
+  @include mixins.flex(row, center, center);
+  @include mixins.font(fonts.$roboto, 1.5rem);
+  height: 100%;
 }
 
 .desc {
-  @include mixins.font(fonts.$nunito, 1rem);
+  @include mixins.font(fonts.$nunito, 1.1rem);
+  margin-right: 1rem;
+  margin-left: 1rem;
+  height: 100%;
 }
+
+.cardImage {
+  position: absolute;
+  z-index: -1;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: 0.6;
+  border-bottom-left-radius: 2.5rem;
+  border-bottom-right-radius: 2.5rem;
+}
+
+.btn:hover .cardImage {
+  opacity: 1;
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+
+// .descContainer:hover > .cardImage {
+//   opacity: 1;
+//   -webkit-filter: grayscale(0%);
+//   filter: grayscale(0%);
+// }

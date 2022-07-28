@@ -3,6 +3,7 @@ import SearchBar from "../components/SearchBar";
 import moment from "moment";
 import { useUrl, useApi } from "../hooks";
 import Image from "next/image";
+import styles from "../styles/pages/Apod.module.scss";
 
 const APOD = () => {
   const defaultDate = moment().format("YYYY-MM-DD");
@@ -33,8 +34,8 @@ const APOD = () => {
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div>
-          <h2>Astronomy Pic of the Day</h2>
+        <div className={styles.container}>
+          <h2 className={styles.title}>ASTRONOMY PICTURE OF THE DAY</h2>
           <SearchBar
             searchTerm={searchDate}
             setSearchTerm={setSearchDate}

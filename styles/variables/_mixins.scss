@@ -5,6 +5,7 @@
   align-items: $alignItems;
 }
 
+//font choices: roboto or nunito
 @mixin font($family, $size) {
   font-family: $family;
   font-size: $size;
