@@ -13,9 +13,11 @@
 }
 
 .link {
-  // @include mixins.flex(row, space-around, center);
-  margin: 1rem;
+  @include mixins.flex(row, space-around, center);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   padding: 1rem;
+  max-width: 90%;
 }
 
 .btn {

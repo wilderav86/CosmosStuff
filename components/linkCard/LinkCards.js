@@ -38,29 +38,27 @@ const LinkCards = ({ links }) => {
 
   const renderLinks = links.map((link, key) => {
     return (
-      <AnimateButton key={key}>
-        <Link href={link.href} passHref>
-          <motion.div className={styles.link} variants={animateItem}>
-            <div className={styles.btn}>
-              <div className={styles.titleContainer}>
-                <a className={styles.title}>{link.title}</a>
-              </div>
-              <div className={styles.descContainer}>
-                <p className={styles.desc}>{link.desc}</p>
-                <Image
-                  className={styles.cardImage}
-                  src={link.image}
-                  alt={link.alt}
-                  layout="fill"
-                  blurDataURL={link.image}
-                  placeholder="blur"
-                  quality={40}
-                />
-              </div>
+      <Link href={link.href} key={key} passHref>
+        <motion.div className={styles.link} variants={animateItem}>
+          <div className={styles.btn}>
+            <div className={styles.titleContainer}>
+              <a className={styles.title}>{link.title}</a>
             </div>
-          </motion.div>
-        </Link>
-      </AnimateButton>
+            <div className={styles.descContainer}>
+              <p className={styles.desc}>{link.desc}</p>
+              <Image
+                className={styles.cardImage}
+                src={link.image}
+                alt={link.alt}
+                layout="fill"
+                blurDataURL={link.image}
+                placeholder="blur"
+                quality={40}
+              />
+            </div>
+          </div>
+        </motion.div>
+      </Link>
     );
   });
 
