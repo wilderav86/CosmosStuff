@@ -5,11 +5,11 @@ import "../styles/globals.css";
 function MyApp({ Component, pageProps, router }) {
   return (
     <Layout>
-      <div className="mainbgColor">
-        <AnimatePresence exitBeforeEnter>
-          <Component {...pageProps} key={router.route} />
-        </AnimatePresence>
-      </div>
+      {/* <div className="mainbgColor"> */}
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} key={router.route} />
+      </AnimatePresence>
+      {/* </div> */}
     </Layout>
   );
 }

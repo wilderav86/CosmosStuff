@@ -2,6 +2,10 @@
 @use "/styles/variables/colors";
 @use "/styles/variables/fonts";
 
+.pageContainer {
+  background-color: colors.$dark;
+}
+
 .container {
   @include mixins.flex(column, space-between, center);
   background-color: colors.$dark;

@@ -55,25 +55,26 @@ const APOD = () => {
 
   return (
     <>
-      {loading ? (
-        <Loading />
-      ) : (
-        <PageFadeIn>
-          <div className={styles.container} key="apod">
-            <h2 className={styles.title}>ASTRONOMY PICTURE OF THE DAY</h2>
-            <SearchBar
-              searchTerm={searchDate}
-              setSearchTerm={setSearchDate}
-              setLoading={setLoading}
-              defaultTerm={defaultDate}
-              loading={loading}
-              min={minDate}
-              max={maxDate}
-              valid={valid}
-              invalidMessage={`Please choose a date between ${minDate} and ${maxDate}`}
-              type={"date"}
-            />
-            {/* <NextButtons
+      <div className={styles.pageContainer}>
+        {loading ? (
+          <Loading />
+        ) : (
+          <PageFadeIn>
+            <div className={styles.container} key="apod">
+              <h2 className={styles.title}>ASTRONOMY PICTURE OF THE DAY</h2>
+              <SearchBar
+                searchTerm={searchDate}
+                setSearchTerm={setSearchDate}
+                setLoading={setLoading}
+                defaultTerm={defaultDate}
+                loading={loading}
+                min={minDate}
+                max={maxDate}
+                valid={valid}
+                invalidMessage={`Please choose a date between ${minDate} and ${maxDate}`}
+                type={"date"}
+              />
+              {/* <NextButtons
             increment={searchDate.setDate(searchDate.getDate() + 1)}
             decrement={searchDate.setDate(searchDate.getDate() - 1)}
             min={minDate}
@@ -81,20 +82,21 @@ const APOD = () => {
             state={searchDate}
             setState={setSearchDate}
           /> */}
-            <h3>{data.title}</h3>
-            <h4>{data.date}</h4>
-            {/* <img src={data.url} /> */}
-            <Image
-              loader={imageLoader}
-              src={data.url}
-              alt="NASA Picture"
-              width={800}
-              height={800}
-            />
-            <p>{data.explanation}</p>
-          </div>
-        </PageFadeIn>
-      )}
+              <h3>{data.title}</h3>
+              <h4>{data.date}</h4>
+              {/* <img src={data.url} /> */}
+              <Image
+                loader={imageLoader}
+                src={data.url}
+                alt="NASA Picture"
+                width={800}
+                height={800}
+              />
+              <p>{data.explanation}</p>
+            </div>
+          </PageFadeIn>
+        )}
+      </div>
     </>
   );
 };

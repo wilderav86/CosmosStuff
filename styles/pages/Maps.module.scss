@@ -2,6 +2,11 @@
 @use "/styles/variables/colors";
 @use "/styles/variables/fonts";
 
+.pageContainer {
+  background-color: colors.$dark;
+  min-height: 100vh;
+}
+
 .container {
   @include mixins.flex(column, center, center);
   background-color: colors.$dark;
