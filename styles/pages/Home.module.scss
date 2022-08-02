@@ -22,14 +22,15 @@
 }
 
 .header {
-  @include mixins.font(fonts.$roboto, 7rem);
+  @include mixins.font(fonts.$roboto, clamp(2.5rem, 7vw, 7rem));
+  text-align: center;
   color: colors.$bright;
   margin-bottom: 0;
   margin-top: 5px;
 }
 
 .description {
-  @include mixins.font(fonts.$nunito, 2rem);
+  @include mixins.font(fonts.$nunito, clamp(1.2rem, 4vw, 4rem));
   color: colors.$bright;
   margin-top: 0;
   border-top: 2px solid colors.$bright;
@@ -38,11 +39,13 @@
 
 .body {
   @include mixins.flex(column, space-around, center);
+  width: 100vw;
   background-color: colors.$dark;
 }
 
 .titleText {
   z-index: 2;
+  width: 100vw;
 
   h2,
   h3,

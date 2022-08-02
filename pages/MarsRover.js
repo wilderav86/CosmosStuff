@@ -43,6 +43,9 @@ const MarsRover = () => {
   const photoArrayEmpty =
     "Oops. It doesn't look like this camera was used on this sol. Choose a different camera, or enter a different sol.";
 
+  const pageInfo =
+    "Photos are organized by the sol (Martian rotation or day) on which they were taken, counting up from the rover's landing date. Choose a camera from the dropdown below and enter a sol. *Note: For some sol's, there is no data from certain cameras.";
+
   return (
     <>
       <PageFadeIn>
@@ -52,13 +55,7 @@ const MarsRover = () => {
           ) : (
             <div className={styles.container}>
               <h2 className={styles.title}>MARS PERSEVERENCE ROVER PHOTOS</h2>
-              <p className={styles.pageInfo}>
-                {" "}
-                Photos are organized by the sol (Martian rotation or day) on
-                which they were taken, counting up from the rover's landing
-                date. Choose a camera from the dropdown below and enter a sol.
-                *Note: For some sol's, there is no data from certain cameras.
-              </p>
+              <p className={styles.pageInfo}>{pageInfo}</p>
               <div>
                 <MarsSearch
                   selectedCamera={selectedCamera}
