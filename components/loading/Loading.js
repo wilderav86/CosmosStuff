@@ -1,4 +1,4 @@
-import InitialFadeIn from "../../animations/InitialFadein.js";
+import InitialFadeIn from "../../animations/InitialFadeIn";
 import styles from "./Loading.module.scss";
 
 const Loading = () => {
