@@ -19,4 +19,5 @@ a {
 
 .mainbgColor {
   background-color: #2c3333;
+  min-height: 100vh;
 }
