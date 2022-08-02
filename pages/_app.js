@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <Layout>
       {/* <div className="mainbgColor"> */}
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence>
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
       {/* </div> */}

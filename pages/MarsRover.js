@@ -50,6 +50,7 @@ const MarsRover = () => {
   return (
     <>
       <div className={styles.pageContainer}>
+        {loading && <Loading />}
         {!loading && (
           <div className={styles.container}>
             <PageFadeIn>
@@ -69,7 +70,8 @@ const MarsRover = () => {
                   <p>Current Sol: {sol}</p>
                 </div>
               </div>
-              <div>
+
+              <div className={styles.photoContainer}>
                 {!marsPhotos.photos.length ? (
                   <div>{photoArrayEmpty}</div>
                 ) : (

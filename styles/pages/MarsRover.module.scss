@@ -22,4 +22,9 @@
 .pageInfo,
 .solInfo {
   @include mixins.font(fonts.$nunito, clamp(1.2rem, 2vw, 1.5rem));
+  @include mixins.flex(column, center, center);
+}
+
+.photoContainer {
+  @include mixins.flex(column, center, center);
 }
