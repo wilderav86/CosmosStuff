@@ -2,12 +2,24 @@
 @use "/styles/variables/colors";
 @use "/styles/variables/fonts";
 
-.container {
-  @include mixins.flex(column, space-between, center);
+.pageContainer {
+  @include mixins.flex(column, normal, center);
   background-color: colors.$dark;
+  min-height: 100vh;
+}
+
+.container {
+  @include mixins.flex(column, normal, center);
+  max-width: 80%;
+  color: colors.$bright;
 }
 
 .title {
-  @include mixins.font(fonts.$roboto, 3rem);
-  color: colors.$bright;
+  @include mixins.font(fonts.$roboto, clamp(1.5rem, 4vw, 4rem));
+  text-align: center;
+}
+
+.pageInfo,
+.solInfo {
+  @include mixins.font(fonts.$nunito, clamp(1.2rem, 2vw, 1.5rem));
 }

@@ -1,0 +1,30 @@
+@use "/styles/variables/mixins";
+@use "/styles/variables/colors";
+@use "/styles/variables/fonts";
+
+.form {
+  @include mixins.flex(column, normal, center);
+}
+
+.label {
+  @include mixins.font(fonts.$roboto, 1.5rem);
+}
+
+.dropdown {
+  @include mixins.font(fonts.$nunito, 1rem);
+  background-color: colors.$bright;
+  color: colors.$dark;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 3rem;
+  width: 21rem;
+
+  option {
+    text-align: center;
+  }
+}
+
+.select-selected {
+  background-color: colors.$dark;
+}

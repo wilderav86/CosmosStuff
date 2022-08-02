@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Map, { Marker } from "react-map-gl";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import "mapbox-gl/dist/mapbox-gl.css";
 
@@ -38,7 +39,6 @@ const IssMap = () => {
   }, []);
 
   const renderDotStream = dotStream.map((dot, key) => {
-    console.log(dot);
     return (
       <Marker longitude={dot.lon} latitude={dot.lat} key={key} anchor="bottom">
         <p style={{ color: "white" }}>.</p>
@@ -63,14 +63,30 @@ const IssMap = () => {
         {!loading && (
           <>
             <Marker
+              key="marker"
               longitude={issData.longitude}
               latitude={issData.latitude}
               anchor="bottom"
             >
-              <Image src="/ISS_01b.svg" height="60" width="60" alt="ISS icon" />
+              <motion.div
+                key="icon"
+                initial={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <Image
+                  key="iss"
+                  src="/ISS_01b.svg"
+                  height="60"
+                  width="60"
+                  alt="ISS icon"
+                />
+              </motion.div>
             </Marker>
           </>
         )}
+
         {renderDotStream}
       </Map>
     </div>

@@ -1,3 +1,6 @@
+@use "/styles/variables/colors";
+@use "/styles/variables/fonts";
+
 @mixin flex($direction, $justifyContent, $alignItems) {
   display: flex;
   flex-direction: $direction;
@@ -9,4 +12,17 @@
 @mixin font($family, $size) {
   font-family: $family;
   font-size: $size;
+}
+
+@mixin button() {
+  @include font(fonts.$roboto, 1.2rem);
+  background-color: colors.$medium;
+  color: colors.$bright;
+  height: 3rem;
+  width: 6rem;
+  border-radius: 1rem;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }

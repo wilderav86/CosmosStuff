@@ -1,0 +1,14 @@
+@use "/styles/variables/mixins";
+@use "/styles/variables/colors";
+@use "/styles/variables/fonts";
+
+.container {
+  @include mixins.flex(row, space-around, center);
+  background-color: colors.$medium;
+  height: 4rem;
+}
+
+.link {
+  @include mixins.font(roboto, 1.2rem);
+  color: colors.$bright;
+}

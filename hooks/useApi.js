@@ -35,6 +35,7 @@ export const useApi = (urls, dependencies) => {
     };
 
     fetchData();
+    console.log("apiData", data);
   }, [...dependencies]);
 
   return { data, loading, setLoading };

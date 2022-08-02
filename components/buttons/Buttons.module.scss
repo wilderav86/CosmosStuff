@@ -1,0 +1,14 @@
+@use "/styles/variables/mixins";
+@use "/styles/variables/colors";
+@use "/styles/variables/fonts";
+
+.container {
+  @include mixins.flex(row, space-around, center);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.next,
+.previous {
+  @include mixins.button();
+}

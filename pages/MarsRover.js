@@ -4,6 +4,7 @@ import { useApi, useUrl } from "../hooks";
 import Image from "next/image";
 
 import styles from "../styles/pages/MarsRover.module.scss";
+import PageFadeIn from "../animations/PageFadein";
 
 const MarsRover = () => {
   //Used for MarsSearch Dropdown component
@@ -40,52 +41,61 @@ const MarsRover = () => {
 
   //Photo error handling
   const photoArrayEmpty =
-    "Oops. It doesn't look like this camera was used on this sol.";
+    "Oops. It doesn't look like this camera was used on this sol. Choose a different camera, or enter a different sol.";
 
   return (
     <>
-      <div>
-        {loading ? (
-          <div>loading...</div>
-        ) : (
-          <div className={styles.container}>
-            <h2 className={styles.title}>MARS ROVER PHOTOS</h2>
-            <div>
-              <MarsSearch
-                selectedCamera={selectedCamera}
-                setSelectedCamera={setSelectedCamera}
-                sol={sol}
-                setSol={setSol}
-                loading={loading}
-                roverData={roverData}
-              />
+      <PageFadeIn>
+        <div className={styles.pageContainer}>
+          {loading ? (
+            <div>loading...</div>
+          ) : (
+            <div className={styles.container}>
+              <h2 className={styles.title}>MARS PERSEVERENCE ROVER PHOTOS</h2>
+              <p className={styles.pageInfo}>
+                {" "}
+                Photos are organized by the sol (Martian rotation or day) on
+                which they were taken, counting up from the rover's landing
+                date. Choose a camera from the dropdown below and enter a sol.
+                *Note: For some sol's, there is no data from certain cameras.
+              </p>
               <div>
-                <p>Maximum searchable Sol: {roverData.rover.max_sol}</p>
-                <p>Current Sol: {sol}</p>
+                <MarsSearch
+                  selectedCamera={selectedCamera}
+                  setSelectedCamera={setSelectedCamera}
+                  sol={sol}
+                  setSol={setSol}
+                  loading={loading}
+                  roverData={roverData}
+                />
+                <div className={styles.solInfo}>
+                  <p>Maximum searchable Sol: {roverData.rover.max_sol}</p>
+                  <p>Current Sol: {sol}</p>
+                </div>
+              </div>
+              <div>
+                {!marsPhotos.photos.length ? (
+                  <div>{photoArrayEmpty}</div>
+                ) : (
+                  marsPhotos.photos.map((photo) => {
+                    return (
+                      <div key={photo.id}>
+                        <Image
+                          loader={imageLoader}
+                          src={photo.img_src}
+                          alt="NASA Picture"
+                          width={800}
+                          height={800}
+                        />
+                      </div>
+                    );
+                  })
+                )}
               </div>
             </div>
-            <div>
-              {!marsPhotos.photos.length ? (
-                <div>{photoArrayEmpty}</div>
-              ) : (
-                marsPhotos.photos.map((photo) => {
-                  return (
-                    <div key={photo.id}>
-                      <Image
-                        loader={imageLoader}
-                        src={photo.img_src}
-                        alt="NASA Picture"
-                        width={800}
-                        height={800}
-                      />
-                    </div>
-                  );
-                })
-              )}
-            </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>{" "}
+      </PageFadeIn>
     </>
   );
 };

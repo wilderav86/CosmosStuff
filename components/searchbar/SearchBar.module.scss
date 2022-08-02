@@ -2,25 +2,28 @@
 @use "/styles/variables/colors";
 @use "/styles/variables/fonts";
 
-.label {
+.container {
+  @include mixins.flex(row, center, center);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .field {
   @include mixins.font(fonts.$nunito, 1.2rem);
   text-align: center;
-  border-top-left-radius: 2rem;
-  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
   background-color: colors.$bright;
   color: colors.$medium;
   height: 3rem;
-  width: 14rem;
+  width: 15rem;
 }
 
 .btn {
   @include mixins.font(fonts.$nunito, 1.2rem);
-  border-top-right-radius: 2rem;
-  border-bottom-right-radius: 2rem;
-  background-color: colors.$light;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  background-color: colors.$medium;
   color: colors.$bright;
   height: 3rem;
   width: 6rem;

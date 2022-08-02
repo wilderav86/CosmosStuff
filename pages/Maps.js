@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
+import PageFadeIn from "../animations/PageFadein";
 import { useUrl, useApi } from "../hooks";
 
 const IssMap = dynamic(() => import("../components/IssMap"), {
@@ -11,8 +12,9 @@ const Maps = () => {
 
   return (
     <div>
-      {" "}
-      <IssMap />
+      <PageFadeIn>
+        <IssMap />
+      </PageFadeIn>
     </div>
   );
 };

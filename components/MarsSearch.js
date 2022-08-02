@@ -1,5 +1,6 @@
-import SearchBar from "./SearchBar";
-import DropDown from "./DropDown";
+import SearchBar from "../components/searchbar/SearchBar";
+import NextButtons from "./buttons/NextButtons";
+import DropDown from "./dropdown/DropDown";
 
 const MarsSearch = ({
   selectedCamera,
@@ -14,25 +15,10 @@ const MarsSearch = ({
 
   const { cameras } = roverData.rover;
 
-  //SearchBar props
+  //SearchBar and Button props
   const maxSol = roverData.rover.max_sol;
   const minSol = 1;
   const valid = sol >= minSol && sol <= maxSol;
-
-  //Functions
-  const handlePrevious = () => {
-    if (sol > 1) {
-      setSol(parseInt(sol) - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (sol < maxSol) {
-      setSol(parseInt(sol) + 1);
-    }
-  };
-
-  console.log(typeof sol);
 
   return (
     <>
@@ -52,16 +38,18 @@ const MarsSearch = ({
           type="number"
           min={minSol}
           max={maxSol}
+          placeholder={`Max Sol: ${roverData.rover.max_sol}`}
+          label={""}
         />
       </div>
-      <div>
-        <button onClick={handlePrevious} disabled={sol == 1 ? true : false}>
-          Previous
-        </button>
-        <button onClick={handleNext} disabled={sol == maxSol ? true : false}>
-          Next
-        </button>
-      </div>
+      <NextButtons
+        increment={sol + 1}
+        decrement={sol - 1}
+        min={minSol}
+        max={maxSol}
+        state={sol}
+        setState={setSol}
+      />
     </>
   );
 };

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/pages/Home.module.scss";
 import LinkCards from "../components/linkCard/LinkCards";
+import PageFadeIn from "../animations/PageFadein";
 
 export default function Home() {
   const links = [
@@ -31,33 +32,35 @@ export default function Home() {
 
   return (
     <div className={styles.app}>
-      <div className={styles.bannerContainer}>
-        <div>
-          <Image
-            className={styles.bgImage}
-            src="/homeBG.jpg"
-            alt="cosmos background"
-            layout="fill"
-            objectFit="cover"
-            blurDataURL="/homeBG.jpg"
-            placeholder="blur"
-            quality={60}
-            priority
-          />
+      <PageFadeIn>
+        <div className={styles.bannerContainer}>
+          <div>
+            <Image
+              className={styles.bgImage}
+              src="/homeBG.jpg"
+              alt="cosmos background"
+              layout="fill"
+              objectFit="cover"
+              blurDataURL="/homeBG.jpg"
+              placeholder="blur"
+              quality={60}
+              priority
+            />
+          </div>
+          <div className={styles.bannerText}>
+            <h1 className={styles.header}>COSMOS STUFF</h1>
+            <h2 className={styles.description}>
+              an aggregate of cool space info
+            </h2>
+          </div>
         </div>
-        <div className={styles.bannerText}>
-          <h1 className={styles.header}>COSMOS STUFF</h1>
-          <h2 className={styles.description}>
-            an aggregate of cool space info
-          </h2>
+        <div className={styles.body}>
+          <div className={styles.titleText}>
+            <h3>what would you like to see?</h3>
+            <LinkCards links={links} />
+          </div>
         </div>
-      </div>
-      <div className={styles.body}>
-        <div className={styles.titleText}>
-          <h3>what would you like to see?</h3>
-          <LinkCards links={links} />
-        </div>
-      </div>
+      </PageFadeIn>
     </div>
   );
 }

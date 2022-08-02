@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/components/SearchBar.module.scss";
+import styles from "./SearchBar.module.scss";
 
 const SearchBar = ({
   setSearchTerm,
@@ -14,6 +14,8 @@ const SearchBar = ({
 }) => {
   const [input, setInput] = useState("");
 
+  console.log("valid", valid);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -23,7 +25,7 @@ const SearchBar = ({
   };
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit} className="ui form">
         <div className={styles.container}>
           <label className={styles.label}>{label}</label>
@@ -42,7 +44,7 @@ const SearchBar = ({
           </button>
         </div>
       </form>
-    </div>
+    </>
   );
 };
 
