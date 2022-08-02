@@ -50,9 +50,7 @@ const MarsRover = () => {
   return (
     <>
       <div className={styles.pageContainer}>
-        {loading ? (
-          <Loading />
-        ) : (
+        {!loading && (
           <div className={styles.container}>
             <PageFadeIn>
               <h2 className={styles.title}>MARS PERSEVERENCE ROVER PHOTOS</h2>
