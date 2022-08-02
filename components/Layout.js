@@ -1,19 +1,11 @@
 import Navbar from "../components/navbar/Navbar.js";
+import { useRouter } from "next/router";
 
 export default function Layout({ children }) {
-  console.log(children);
-  const name = children.type.name;
-
   //Do not render navbar on home page.
+  const route = useRouter();
 
-  // return (
-  //   <>
-  //     <Navbar />
-  //     <main>{children}</main>
-  //   </>
-  // );
-
-  return name === "Home" ? (
+  return route.pathname === "/" ? (
     <>{children}</>
   ) : (
     <>
