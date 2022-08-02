@@ -8,14 +8,10 @@ const IssMap = dynamic(() => import("../components/IssMap"), {
 });
 
 const Maps = () => {
-  //Fetch ISS location
-
   return (
-    <div>
-      <PageFadeIn>
-        <IssMap />
-      </PageFadeIn>
-    </div>
+    <PageFadeIn>
+      <IssMap />
+    </PageFadeIn>
   );
 };
 

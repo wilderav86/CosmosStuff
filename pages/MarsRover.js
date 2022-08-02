@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import MarsSearch from "../components/MarsSearch";
+import Loading from "../components/loading/Loading";
 import { useApi, useUrl } from "../hooks";
 import Image from "next/image";
 
@@ -48,12 +49,12 @@ const MarsRover = () => {
 
   return (
     <>
-      <PageFadeIn>
-        <div className={styles.pageContainer}>
-          {loading ? (
-            <div>loading...</div>
-          ) : (
-            <div className={styles.container}>
+      <div className={styles.pageContainer}>
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className={styles.container}>
+            <PageFadeIn>
               <h2 className={styles.title}>MARS PERSEVERENCE ROVER PHOTOS</h2>
               <p className={styles.pageInfo}>{pageInfo}</p>
               <div>
@@ -89,10 +90,10 @@ const MarsRover = () => {
                   })
                 )}
               </div>
-            </div>
-          )}
-        </div>{" "}
-      </PageFadeIn>
+            </PageFadeIn>
+          </div>
+        )}
+      </div>{" "}
     </>
   );
 };

@@ -5,7 +5,9 @@ import { useUrl, useApi } from "../hooks";
 import Image from "next/image";
 import styles from "../styles/pages/Apod.module.scss";
 import NextButtons from "../components/buttons/NextButtons";
+import Loading from "../components/loading/Loading";
 import PageFadeIn from "../animations/PageFadein";
+import { motion, AnimatePresence } from "framer-motion";
 
 const APOD = () => {
   const defaultDate = moment().format("YYYY-MM-DD");
@@ -53,11 +55,11 @@ const APOD = () => {
 
   return (
     <>
-      <PageFadeIn>
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <div className={styles.container}>
+      {loading ? (
+        <Loading />
+      ) : (
+        <PageFadeIn>
+          <div className={styles.container} key="apod">
             <h2 className={styles.title}>ASTRONOMY PICTURE OF THE DAY</h2>
             <SearchBar
               searchTerm={searchDate}
@@ -91,8 +93,8 @@ const APOD = () => {
             />
             <p>{data.explanation}</p>
           </div>
-        )}
-      </PageFadeIn>
+        </PageFadeIn>
+      )}
     </>
   );
 };

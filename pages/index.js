@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "../styles/pages/Home.module.scss";
 import LinkCards from "../components/linkCard/LinkCards";
 import PageFadeIn from "../animations/PageFadein";
+import InitialFadeIn from "../animations/InitialFadeIn";
 
 export default function Home() {
   const links = [
@@ -31,8 +32,8 @@ export default function Home() {
   ];
 
   return (
-    <div className={styles.app}>
-      <PageFadeIn>
+    <InitialFadeIn>
+      <div className={styles.app}>
         <div className={styles.bannerContainer}>
           <div>
             <Image
@@ -60,7 +61,7 @@ export default function Home() {
             <LinkCards links={links} />
           </div>
         </div>
-      </PageFadeIn>
-    </div>
+      </div>{" "}
+    </InitialFadeIn>
   );
 }

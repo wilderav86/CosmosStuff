@@ -16,3 +16,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.mainbgColor {
+  background-color: #2c3333;
+}

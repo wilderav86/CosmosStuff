@@ -1,0 +1,9 @@
+@use "../../styles/variables/colors";
+@use "../../styles/variables/mixins";
+
+.container {
+  @include mixins.flex(column, center, center);
+  height: 100vh;
+  width: 100vw;
+  background-color: colors.$dark;
+}
