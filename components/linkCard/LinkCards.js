@@ -38,9 +38,9 @@ const LinkCards = ({ links }) => {
 
   const renderLinks = links.map((link, key) => {
     return (
-      <AnimateButton>
+      <AnimateButton key={key}>
         <Link href={link.href} passHref>
-          <motion.div className={styles.link} key={key} variants={animateItem}>
+          <motion.div className={styles.link} variants={animateItem}>
             <div className={styles.btn}>
               <div className={styles.titleContainer}>
                 <a className={styles.title}>{link.title}</a>

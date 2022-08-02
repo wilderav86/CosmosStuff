@@ -9,7 +9,7 @@
 }
 
 .title {
-  @include mixins.font(fonts.$roboto, clamp(2.5rem, 7vw, 7rem));
+  @include mixins.font(fonts.$roboto, clamp(2rem, 4vw, 5rem));
   text-align: center;
   color: colors.$bright;
 }
