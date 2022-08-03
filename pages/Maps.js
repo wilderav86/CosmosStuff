@@ -11,9 +11,9 @@ const IssMap = dynamic(() => import("../components/IssMap"), {
 const Maps = () => {
   return (
     <div className={styles.pageContainer}>
-      <PageFadeIn>
-        <IssMap />
-      </PageFadeIn>
+      {/* <PageFadeIn> */}
+      <IssMap />
+      {/* </PageFadeIn> */}
     </div>
   );
 };

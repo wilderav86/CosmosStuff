@@ -53,44 +53,44 @@ const MarsRover = () => {
         {loading && <Loading />}
         {!loading && (
           <div className={styles.container}>
-            <PageFadeIn>
-              <h2 className={styles.title}>MARS PERSEVERENCE ROVER PHOTOS</h2>
-              <p className={styles.pageInfo}>{pageInfo}</p>
-              <div>
-                <MarsSearch
-                  selectedCamera={selectedCamera}
-                  setSelectedCamera={setSelectedCamera}
-                  sol={sol}
-                  setSol={setSol}
-                  loading={loading}
-                  roverData={roverData}
-                />
-                <div className={styles.solInfo}>
-                  <p>Maximum searchable Sol: {roverData.rover.max_sol}</p>
-                  <p>Current Sol: {sol}</p>
-                </div>
+            {/* <PageFadeIn> */}
+            <h2 className={styles.title}>MARS PERSEVERENCE ROVER PHOTOS</h2>
+            <p className={styles.pageInfo}>{pageInfo}</p>
+            <div>
+              <MarsSearch
+                selectedCamera={selectedCamera}
+                setSelectedCamera={setSelectedCamera}
+                sol={sol}
+                setSol={setSol}
+                loading={loading}
+                roverData={roverData}
+              />
+              <div className={styles.solInfo}>
+                <p>Maximum searchable Sol: {roverData.rover.max_sol}</p>
+                <p>Current Sol: {sol}</p>
               </div>
+            </div>
 
-              <div className={styles.photoContainer}>
-                {!marsPhotos.photos.length ? (
-                  <div>{photoArrayEmpty}</div>
-                ) : (
-                  marsPhotos.photos.map((photo) => {
-                    return (
-                      <div key={photo.id}>
-                        <Image
-                          loader={imageLoader}
-                          src={photo.img_src}
-                          alt="NASA Picture"
-                          width={800}
-                          height={800}
-                        />
-                      </div>
-                    );
-                  })
-                )}
-              </div>
-            </PageFadeIn>
+            <div className={styles.photoContainer}>
+              {!marsPhotos.photos.length ? (
+                <div>{photoArrayEmpty}</div>
+              ) : (
+                marsPhotos.photos.map((photo) => {
+                  return (
+                    <div key={photo.id}>
+                      <Image
+                        loader={imageLoader}
+                        src={photo.img_src}
+                        alt="NASA Picture"
+                        width={800}
+                        height={800}
+                      />
+                    </div>
+                  );
+                })
+              )}
+            </div>
+            {/* </PageFadeIn> */}
           </div>
         )}
       </div>{" "}

@@ -8,7 +8,7 @@ const InitialFadeIn = ({ children }) => {
       animate={{ opacity: 1 }}
       // initial={{ opacity: 0 }}
       // animate={{ opacity: 1, duration: 2 }}
-      // transition={{ duration: 0.4 }}
+      transition={{ duration: 0.4 }}
       exit={{ opacity: 0 }}
     >
       {children}
