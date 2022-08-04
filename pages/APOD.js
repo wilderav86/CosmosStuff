@@ -84,15 +84,19 @@ const APOD = () => {
           /> */}
             <h3>{data.title}</h3>
             <h4>{data.date}</h4>
-            {/* <img src={data.url} /> */}
-            <Image
-              loader={imageLoader}
-              src={data.url}
-              alt="NASA Picture"
-              width={800}
-              height={800}
-            />
-            <p>{data.explanation}</p>
+            <div className={styles.imageContainer}>
+              <Image
+                loader={imageLoader}
+                src={data.url}
+                alt="NASA Picture"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+
+            <div className={styles.explanationContainer}>
+              <p>{data.explanation}</p>
+            </div>
           </div>
           // </PageFadeIn>
         )}

@@ -3,13 +3,19 @@ import { AnimatePresence } from "framer-motion";
 import "../styles/globals.css";
 import InitialFadeIn from "../animations/InitialFadeIn";
 
+function handleExitComplete() {
+  if (typeof window !== "undefined") {
+    window.scrollTo({ top: 0 });
+  }
+}
+
 function MyApp({ Component, pageProps, router }) {
   return (
     <div className="mainbgColor">
       <Layout>
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
           <InitialFadeIn>
-            <Component {...pageProps} key={router.route} />
+            <Component {...pageProps} key={router.asPath} />
           </InitialFadeIn>
         </AnimatePresence>
       </Layout>

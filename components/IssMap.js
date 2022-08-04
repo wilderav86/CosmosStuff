@@ -48,17 +48,24 @@ const IssMap = () => {
     );
   });
 
+  console.log(issData);
+
   return (
     <div className={styles.container}>
       <div>
-        <p>alt: {issData.altitude}</p>
-        <p>speed: {issData.velocity} kph</p>
+        <p>
+          ALTITUDE: {Math.round(issData.altitude * 100) / 100} kilometers above
+          earth
+        </p>
+        <p>
+          SPEED: {Math.round(issData.velocity * 100) / 100} kilometers per hour
+        </p>
       </div>
 
       <Map
         {...viewState}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
-        style={{ width: "100vw", height: "100vh" }}
+        style={{ width: "90vw", height: "75vh" }}
         mapStyle="mapbox://styles/mapbox/dark-v9"
         onMove={(evt) => setViewState(evt.viewState)}
       >
@@ -70,23 +77,21 @@ const IssMap = () => {
               latitude={issData.latitude}
               anchor="bottom"
             >
-              <AnimatePresence exitBeforeEnter>
-                <motion.div
-                  key="issicon"
-                  initial={{ opacity: 0 }}
-                  transition={{ duration: 1 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <Image
-                    key="iss"
-                    src="/ISS_01b.svg"
-                    height="60"
-                    width="60"
-                    alt="ISS icon"
-                  />
-                </motion.div>
-              </AnimatePresence>
+              <motion.div
+                key={issData.longitude}
+                initial={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <Image
+                  key="iss"
+                  src="/ISS_01b.svg"
+                  height="60"
+                  width="60"
+                  alt="ISS icon"
+                />
+              </motion.div>
             </Marker>
           </>
         )}

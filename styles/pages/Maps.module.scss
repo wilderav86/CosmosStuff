@@ -3,6 +3,7 @@
 @use "/styles/variables/fonts";
 
 .pageContainer {
+  @include mixins.flex(column, center, center);
   background-color: colors.$dark;
   min-height: 100vh;
 }
@@ -11,4 +12,8 @@
   @include mixins.flex(column, center, center);
   background-color: colors.$dark;
   color: colors.$bright;
+}
+
+.title {
+  @include mixins.pageTitle();
 }

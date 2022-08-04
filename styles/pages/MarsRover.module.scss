@@ -28,3 +28,19 @@
 .photoContainer {
   @include mixins.flex(column, center, center);
 }
+
+.imageContainer {
+  position: relative;
+  height: 80vh;
+  width: 90vw;
+
+  @include mixins.breakpoint(medium) {
+    height: 50vh;
+  }
+  @include mixins.breakpoint(mobile) {
+    height: 40vh;
+  }
+  @include mixins.breakpoint(small) {
+    height: 35vh;
+  }
+}

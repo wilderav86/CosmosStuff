@@ -13,7 +13,29 @@
 }
 
 .title {
-  @include mixins.font(fonts.$roboto, clamp(2rem, 4vw, 5rem));
-  text-align: center;
-  color: colors.$bright;
+  @include mixins.pageTitle();
+}
+
+.imageContainer {
+  position: relative;
+  height: 80vh;
+  width: 90vw;
+
+  @include mixins.breakpoint(medium) {
+    height: 50vh;
+  }
+  @include mixins.breakpoint(mobile) {
+    height: 40vh;
+  }
+  @include mixins.breakpoint(small) {
+    height: 35vh;
+  }
+}
+
+.explanationContainer {
+  @include mixins.flex(column, center, center);
+  @include mixins.font(fonts.$nunito, 1.2rem);
+  max-width: 80%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

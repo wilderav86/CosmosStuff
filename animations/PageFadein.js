@@ -2,11 +2,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "react";
 
 const PageFadeIn = ({ children }) => {
-  console.log(children);
+  console.log("children", children);
 
   return (
     <motion.div
-      key={children.key}
+      key={children.props.children}
       initial={{ x: -3000 }}
       animate={{ x: 0 }}
       transition={{

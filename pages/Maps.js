@@ -11,9 +11,9 @@ const IssMap = dynamic(() => import("../components/IssMap"), {
 const Maps = () => {
   return (
     <div className={styles.pageContainer}>
-      {/* <PageFadeIn> */}
+      <h1 className={styles.title}> Space Station Tracker</h1>
+
       <IssMap />
-      {/* </PageFadeIn> */}
     </div>
   );
 };

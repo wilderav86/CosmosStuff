@@ -77,13 +77,13 @@ const MarsRover = () => {
               ) : (
                 marsPhotos.photos.map((photo) => {
                   return (
-                    <div key={photo.id}>
+                    <div className={styles.imageContainer} key={photo.id}>
                       <Image
                         loader={imageLoader}
                         src={photo.img_src}
                         alt="NASA Picture"
-                        width={800}
-                        height={800}
+                        layout="fill"
+                        objectFit="contain"
                       />
                     </div>
                   );
