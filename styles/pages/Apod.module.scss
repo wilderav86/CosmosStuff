@@ -32,6 +32,10 @@
   }
 }
 
+.photoTitle {
+  max-width: 80%;
+}
+
 .explanationContainer {
   @include mixins.flex(column, center, center);
   @include mixins.font(fonts.$nunito, 1.2rem);

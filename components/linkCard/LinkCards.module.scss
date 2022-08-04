@@ -17,7 +17,7 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 1rem;
-  max-width: 90%;
+  max-width: 95%;
 }
 
 .btn {
@@ -25,11 +25,16 @@
   flex-direction: column;
   justify-content: center;
   // background-color: colors.$light;
-  width: 22rem;
-  height: 18rem;
+  width: 25rem;
+  height: 21rem;
   border: none;
   border-radius: 3rem;
   cursor: pointer;
+
+  @include mixins.breakpoint(mobile) {
+    width: 21rem;
+    height: 16rem;
+  }
 }
 
 .titleContainer {
@@ -47,7 +52,7 @@
 
 .title {
   @include mixins.flex(row, center, center);
-  @include mixins.font(fonts.$roboto, 1.5rem);
+  @include mixins.font(fonts.$roboto, 1.4rem);
   height: 100%;
 }
 

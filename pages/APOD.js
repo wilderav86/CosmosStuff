@@ -82,7 +82,7 @@ const APOD = () => {
             state={searchDate}
             setState={setSearchDate}
           /> */}
-            <h3>{data.title}</h3>
+            <h3 className={styles.photoTitle}>{data.title}</h3>
             <h4>{data.date}</h4>
             <div className={styles.imageContainer}>
               <Image

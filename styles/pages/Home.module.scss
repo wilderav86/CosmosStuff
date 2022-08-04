@@ -10,8 +10,15 @@
 .bannerContainer {
   @include mixins.flex(column, space-around, center);
   position: relative;
-
+  min-height: 30vh;
   width: 100vw;
+
+  @include mixins.breakpoint(medium) {
+    min-height: 20vh;
+  }
+  @include mixins.breakpoint(mobile) {
+    min-height: 15vh;
+  }
 }
 
 .app {
@@ -45,6 +52,7 @@
 
 .body {
   @include mixins.flex(column, space-around, center);
+  padding-top: 3rem;
   width: 100vw;
   background-color: colors.$dark;
 }
