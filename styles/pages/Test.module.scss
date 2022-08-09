@@ -1,0 +1,43 @@
+@use "/styles/variables/mixins";
+@use "/styles/variables/colors";
+@use "/styles/variables/fonts";
+
+.pageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.bgImage {
+  position: absolute;
+
+  background-color: black;
+}
+
+.image {
+}
+
+.linkCards {
+  position: absolute;
+  z-index: 2;
+  // height: 270px;
+  // width: 370px;
+  height: 33%;
+  max-width: 360px;
+  min-width: 300px;
+  overflow-y: auto;
+  border-radius: 4rem;
+  transform: perspective(7rem) skew(-2deg) rotateY(2deg) rotateX(-1deg)
+    rotate(-5deg) translateY(-20%) translateX(-4%);
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.linkCards::-webkit-scrollbar {
+  display: none;
+}

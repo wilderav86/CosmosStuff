@@ -19,6 +19,11 @@ const Navbar = () => {
       title: "ISS Tracker",
       href: "/Maps",
     },
+
+    {
+      title: "Test",
+      href: "/Test",
+    },
   ];
 
   const renderNavLinks = navLinks.map((navLink, key) => {
