@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Banner = () => {
   return (
     <div className={styles.bannerContainer}>
