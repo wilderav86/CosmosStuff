@@ -7,9 +7,11 @@ export default function Layout({ children }) {
 
   // return route.pathname === "/" ?
 
-  return route.pathname === "/Test" ? (
-    <>{children}</>
-  ) : (
+  // return route.pathname === "/Test" ? (
+  //   <>{children}</>
+  // ) : (
+
+  return (
     <>
       <Navbar />
       {children}

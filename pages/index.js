@@ -14,6 +14,7 @@ export default function Home() {
       href: "/APOD",
       image: "/observatory.jpg",
       alt: "apod image",
+      id: "APOD",
     },
     {
       title: "Mars Rover Photos",
@@ -21,6 +22,7 @@ export default function Home() {
       href: "/MarsRover",
       image: "/marsRover.jpg",
       alt: "rover image",
+      id: "MarsRover",
     },
     {
       title: "International Space Station Tracker",
@@ -28,6 +30,7 @@ export default function Home() {
       href: "/Maps",
       image: "/iss.jpg",
       alt: "iss image",
+      id: "Maps",
     },
   ];
 

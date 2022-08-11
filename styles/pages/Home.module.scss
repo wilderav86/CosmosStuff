@@ -4,29 +4,37 @@
 
 .pageContainer {
   background-color: colors.$dark;
-  min-height: 100vh;
+
+  // min-height: 95vh;
+}
+
+.app {
+  @include mixins.flex(row, center, flex-start);
+  position: relative;
+  z-index: 1;
+  height: 95vh;
+  width: 100vw;
+  background-color: colors.$dark;
+
+  @include mixins.breakpoint(medium) {
+    @include mixins.flex(column, center, center);
+    height: auto;
+  }
 }
 
 .bannerContainer {
-  @include mixins.flex(column, space-around, center);
+  @include mixins.flex(column, center, center);
   position: relative;
-  min-height: 30vh;
-  width: 100vw;
+  height: 95vh;
+  width: 60%;
 
   @include mixins.breakpoint(medium) {
-    min-height: 20vh;
+    max-height: 20vh;
+    width: 100%;
   }
   @include mixins.breakpoint(mobile) {
     min-height: 15vh;
   }
-}
-
-.app {
-  position: relative;
-  z-index: 1;
-  height: 100vh;
-  width: 100vw;
-  background-color: colors.$dark;
 }
 
 .bgImage {
@@ -51,15 +59,23 @@
 }
 
 .body {
-  @include mixins.flex(column, space-around, center);
-  padding-top: 3rem;
-  width: 100vw;
+  @include mixins.flex(column, normal, center);
+  padding-top: 2rem;
+  width: 40%;
+  height: 100%;
   background-color: colors.$dark;
+  overflow-y: scroll;
+
+  @include mixins.breakpoint(medium) {
+    width: 100%;
+    height: auto;
+    overflow-y: visible;
+  }
 }
 
 .titleText {
   z-index: 2;
-  width: 100vw;
+  width: 100%;
 
   h2,
   h3,

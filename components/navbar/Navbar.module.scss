@@ -4,11 +4,22 @@
 
 .container {
   @include mixins.flex(row, space-around, center);
-  background-color: colors.$medium;
-  height: 4rem;
+  // background-color: colors.$medium;
+  flex-wrap: wrap;
+  background-color: #d8ccbc;
+  height: 5vh;
+
+  @include mixins.breakpoint(mobile) {
+    height: 12rem;
+    justify-content: flex-start;
+  }
 }
 
 .link {
   @include mixins.font(roboto, 1.2rem);
-  color: colors.$bright;
+  // color: colors.$bright;
+  color: colors.$medium;
+
+  @include mixins.breakpoint(mobile) {
+  }
 }
