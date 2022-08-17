@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { useState } from "react";
+import AnimateButton from "../../animations/AnimateButton";
+import Hamburger from "./Hamburger";
 import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
@@ -28,13 +31,23 @@ const Navbar = () => {
 
   const renderNavLinks = navLinks.map((navLink, key) => {
     return (
-      <div className={styles.link} key={key}>
-        <Link href={navLink.href}>{navLink.title}</Link>
-      </div>
+      <AnimateButton>
+        <div className={styles.link} key={key}>
+          <Link href={navLink.href}>{navLink.title}</Link>
+        </div>
+      </AnimateButton>
     );
   });
 
-  return <div className={styles.container}>{renderNavLinks}</div>;
+  return (
+    <nav className={styles.container}>
+      <div className={styles.desktopLinks}>{renderNavLinks}</div>
+
+      {/* <div className={styles.hamburger}> */}
+      <Hamburger renderNavLinks={renderNavLinks} />
+      {/* </div> */}
+    </nav>
+  );
 };
 
 export default Navbar;
