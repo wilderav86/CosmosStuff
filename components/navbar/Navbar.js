@@ -31,8 +31,8 @@ const Navbar = () => {
 
   const renderNavLinks = navLinks.map((navLink, key) => {
     return (
-      <AnimateButton>
-        <div className={styles.link} key={key}>
+      <AnimateButton key={key}>
+        <div className={styles.link}>
           <Link href={navLink.href}>{navLink.title}</Link>
         </div>
       </AnimateButton>
