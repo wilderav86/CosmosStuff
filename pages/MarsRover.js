@@ -78,8 +78,8 @@ const MarsRover = () => {
               ) : (
                 marsPhotos.photos.map((photo) => {
                   return (
-                    <Zoom>
-                      <div className={styles.imageContainer} key={photo.id}>
+                    <Zoom key={photo.id}>
+                      <div className={styles.imageContainer}>
                         <Image
                           loader={imageLoader}
                           src={photo.img_src}
