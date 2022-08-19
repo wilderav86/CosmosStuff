@@ -48,8 +48,6 @@ const IssMap = () => {
     );
   });
 
-  console.log(issData);
-
   return (
     <div className={styles.container}>
       <div>

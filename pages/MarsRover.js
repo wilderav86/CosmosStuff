@@ -3,6 +3,7 @@ import MarsSearch from "../components/MarsSearch";
 import Loading from "../components/loading/Loading";
 import { useApi, useUrl } from "../hooks";
 import Image from "next/image";
+import Zoom from "react-medium-image-zoom";
 
 import styles from "../styles/pages/MarsRover.module.scss";
 import PageFadeIn from "../animations/PageFadein";
@@ -77,15 +78,17 @@ const MarsRover = () => {
               ) : (
                 marsPhotos.photos.map((photo) => {
                   return (
-                    <div className={styles.imageContainer} key={photo.id}>
-                      <Image
-                        loader={imageLoader}
-                        src={photo.img_src}
-                        alt="NASA Picture"
-                        layout="fill"
-                        objectFit="contain"
-                      />
-                    </div>
+                    <Zoom>
+                      <div className={styles.imageContainer} key={photo.id}>
+                        <Image
+                          loader={imageLoader}
+                          src={photo.img_src}
+                          alt="NASA Picture"
+                          layout="fill"
+                          objectFit="contain"
+                        />
+                      </div>
+                    </Zoom>
                   );
                 })
               )}

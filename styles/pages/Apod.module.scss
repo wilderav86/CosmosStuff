@@ -10,16 +10,18 @@
   @include mixins.flex(column, space-between, center);
   background-color: colors.$dark;
   color: colors.$bright;
+  width: 100vw;
 }
 
 .title {
   @include mixins.pageTitle();
+  max-width: 80%;
 }
 
 .imageContainer {
   position: relative;
   height: 80vh;
-  width: 90vw;
+  width: 95vw;
 
   @include mixins.breakpoint(medium) {
     height: 50vh;
@@ -39,7 +41,12 @@
 .explanationContainer {
   @include mixins.flex(column, center, center);
   @include mixins.font(fonts.$nunito, 1.2rem);
-  max-width: 80%;
+  max-width: 70%;
+
+  @include mixins.breakpoint(medium) {
+    min-width: 90%;
+  }
+
   margin-top: 1rem;
   margin-bottom: 1rem;
 }

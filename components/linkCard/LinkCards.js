@@ -5,7 +5,6 @@ import styles from "./LinkCards.module.scss";
 import AnimateButton from "../../animations/AnimateButton";
 
 const LinkCards = ({ links }) => {
-  console.log(links);
   //animations
 
   const animateContainer = {
@@ -42,23 +41,25 @@ const LinkCards = ({ links }) => {
     return (
       <Link href={link.href} key={key} passHref>
         <motion.div className={styles.link} variants={animateItem}>
-          <div id={link.id} className={styles.btn}>
-            <div className={styles.titleContainer}>
-              <a className={styles.title}>{link.title}</a>
+          <AnimateButton>
+            <div id={link.id} className={styles.btn}>
+              <div className={styles.titleContainer}>
+                <a className={styles.title}>{link.title}</a>
+              </div>
+              <div className={styles.descContainer}>
+                <p className={styles.desc}>{link.desc}</p>
+                <Image
+                  className={styles.cardImage}
+                  src={link.image}
+                  alt={link.alt}
+                  layout="fill"
+                  blurDataURL={link.image}
+                  placeholder="blur"
+                  quality={40}
+                />
+              </div>
             </div>
-            <div className={styles.descContainer}>
-              <p className={styles.desc}>{link.desc}</p>
-              <Image
-                className={styles.cardImage}
-                src={link.image}
-                alt={link.alt}
-                layout="fill"
-                blurDataURL={link.image}
-                placeholder="blur"
-                quality={40}
-              />
-            </div>
-          </div>
+          </AnimateButton>
         </motion.div>
       </Link>
     );

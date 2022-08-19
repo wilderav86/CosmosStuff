@@ -26,10 +26,10 @@
   @include mixins.flex(column, center, center);
   position: relative;
   height: 95vh;
-  width: 60%;
+  width: 55%;
 
   @include mixins.breakpoint(medium) {
-    max-height: 20vh;
+    max-height: 40vh;
     width: 100%;
   }
   @include mixins.breakpoint(mobile) {
@@ -61,7 +61,8 @@
 .body {
   @include mixins.flex(column, normal, center);
   padding-top: 2rem;
-  width: 40%;
+  padding-bottom: 2rem;
+  width: 45%;
   height: 100%;
   background-color: colors.$dark;
   overflow-y: scroll;

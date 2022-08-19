@@ -1,10 +1,14 @@
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { useState } from "react";
 import AnimateButton from "../../animations/AnimateButton";
 import Hamburger from "./Hamburger";
 import styles from "./Navbar.module.scss";
+import { useDetectOutsideClick } from "../../hooks";
 
 const Navbar = () => {
+  const navRef = useRef(null);
+  const [expanded, setExpanded] = useDetectOutsideClick(navRef, false);
+
   const navLinks = [
     {
       title: "Home",
@@ -24,28 +28,29 @@ const Navbar = () => {
     },
 
     {
-      title: "Test",
-      href: "/Test",
+      title: "James Webb Telescope",
+      href: "/JamesWebb",
     },
   ];
 
   const renderNavLinks = navLinks.map((navLink, key) => {
     return (
-      <AnimateButton key={key}>
-        <div className={styles.link}>
+      <div key={key} className={styles.link} onClick={() => setExpanded(false)}>
+        <AnimateButton>
           <Link href={navLink.href}>{navLink.title}</Link>
-        </div>
-      </AnimateButton>
+        </AnimateButton>
+      </div>
     );
   });
 
   return (
-    <nav className={styles.container}>
+    <nav className={styles.container} ref={navRef}>
       <div className={styles.desktopLinks}>{renderNavLinks}</div>
-
-      {/* <div className={styles.hamburger}> */}
-      <Hamburger renderNavLinks={renderNavLinks} />
-      {/* </div> */}
+      <Hamburger
+        renderNavLinks={renderNavLinks}
+        expanded={expanded}
+        setExpanded={setExpanded}
+      />
     </nav>
   );
 };

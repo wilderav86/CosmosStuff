@@ -61,7 +61,6 @@ export default function Home() {
         </div>
         <div className={styles.body}>
           <div className={styles.titleText}>
-            <h3>what would you like to see?</h3>
             <LinkCards links={links} />
           </div>
         </div>

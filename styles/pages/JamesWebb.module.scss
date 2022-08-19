@@ -1,0 +1,15 @@
+@use "/styles/variables/mixins";
+@use "/styles/variables/colors";
+@use "/styles/variables/fonts";
+
+.pageContainer {
+  @include mixins.flex(row, normal, center);
+  flex-wrap: wrap;
+}
+
+.imageContainer {
+  background-color: "black";
+  position: relative;
+  height: 50vh;
+  width: 50vw;
+}

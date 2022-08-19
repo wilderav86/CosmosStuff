@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import { AnimatePresence } from "framer-motion";
 import "../styles/globals.css";
+import "../styles/components/Zoom.scss";
 import InitialFadeIn from "../animations/InitialFadeIn";
 
 function handleExitComplete() {

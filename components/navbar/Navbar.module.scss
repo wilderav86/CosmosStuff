@@ -29,12 +29,12 @@
 
 .link {
   @include mixins.font(roboto, 1.2rem);
-  // color: colors.$bright;
-  color: colors.$bright;
 
+  color: colors.$bright;
+  padding: 1rem;
+  padding-left: 2rem;
   @include mixins.breakpoint(medium) {
     @include mixins.font(roboto, 1.4rem);
-    padding: 1rem;
   }
 }
 
@@ -50,7 +50,7 @@
   transition: height 0.2s ease-in-out;
   border-bottom: 2px solid colors.$bright;
   @include mixins.breakpoint(medium) {
-    @include mixins.flex(column, flex-end, flex-end);
+    @include mixins.flex(column, flex-start, flex-end);
   }
 }
 
@@ -67,6 +67,7 @@
 }
 
 .linkContainer {
+  @include mixins.flex(column, left, flex-start);
   width: 100%;
   height: auto;
   max-height: 19rem;
@@ -78,24 +79,3 @@
   display: hidden;
   max-height: 0;
 }
-
-// .closed {
-//   display: none;
-//   max-height: 300px;
-//   transition: height 0.5s;
-// }
-
-// .expanded {
-//   @include mixins.flex(column, space-around, center);
-//   display: hidden;
-//   max-height: 7rem;
-//   background-color: aqua;
-//   transition: height 0.5s;
-//   z-index: 2;
-
-//   @include mixins.breakpoint(medium) {
-//     @include mixins.flex(column, right, center);
-//     display: block;
-//     height: 15rem;
-//   }
-// }
