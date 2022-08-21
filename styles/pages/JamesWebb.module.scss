@@ -2,14 +2,18 @@
 @use "/styles/variables/colors";
 @use "/styles/variables/fonts";
 
-.pageContainer {
-  @include mixins.flex(row, normal, center);
-  flex-wrap: wrap;
+.imagesContainer {
+  display: grid;
+  padding: 4%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+
+  @include mixins.breakpoint(mobile) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .imageContainer {
   background-color: "black";
   position: relative;
-  height: 50vh;
-  width: 50vw;
 }
