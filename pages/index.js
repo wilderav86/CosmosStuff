@@ -32,6 +32,15 @@ export default function Home() {
       alt: "iss image",
       id: "Maps",
     },
+
+    {
+      title: "James Webb Space Telescope",
+      desc: "Raw images from the JWST",
+      href: "/JamesWebb",
+      image: "/JWST.webP",
+      alt: "JWST image",
+      id: "JWST",
+    },
   ];
 
   return (

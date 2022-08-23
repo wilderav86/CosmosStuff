@@ -12,8 +12,13 @@
   @include mixins.flex(column, center, center);
   background-color: colors.$dark;
   color: colors.$bright;
+  padding-bottom: 3rem;
 }
 
 .title {
   @include mixins.pageTitle();
+}
+
+.map {
+  max-height: 30%;
 }

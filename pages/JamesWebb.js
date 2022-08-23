@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Zoom from "react-medium-image-zoom";
+import AnimateButton from "../animations/AnimateButton";
 import Loading from "../components/loading/Loading";
 
 import { useApi, useUrl } from "../hooks";
@@ -42,14 +43,28 @@ const JamesWebb = () => {
 
   return (
     <div className={styles.pageContainer}>
-      <button onClick={() => setPage((page -= 1))}>Back</button>
-      <button onClick={() => setPage((page += 1))}>Next</button>
+      <div className={styles.buttonContainer}>
+        <AnimateButton>
+          <button
+            className={styles.btn}
+            disabled={page === 1}
+            onClick={() => setPage((page -= 1))}
+          >
+            Back
+          </button>{" "}
+        </AnimateButton>
+        <AnimateButton>
+          <button className={styles.btn} onClick={() => setPage((page += 1))}>
+            Next
+          </button>
+        </AnimateButton>
+      </div>
+
       {loading ? (
         <Loading />
       ) : (
         <div className={styles.imagesContainer}>
           {data.body.map((image, key) => {
-            // console.log("image", image);
             return (
               <Zoom key={key}>
                 <div className={styles.imageContainer}>

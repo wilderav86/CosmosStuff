@@ -53,6 +53,7 @@ const LinkCards = ({ links }) => {
                   src={link.image}
                   alt={link.alt}
                   layout="fill"
+                  objectFit="cover"
                   blurDataURL={link.image}
                   placeholder="blur"
                   quality={40}

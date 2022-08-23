@@ -29,11 +29,18 @@
   width: 55%;
 
   @include mixins.breakpoint(medium) {
-    max-height: 40vh;
+    height: 40vh;
     width: 100%;
   }
   @include mixins.breakpoint(mobile) {
-    min-height: 15vh;
+    // min-height: 15vh;
+    height: 95vh;
+  }
+}
+
+.bannerText {
+  @include mixins.breakpoint(mobile) {
+    height: 80%;
   }
 }
 

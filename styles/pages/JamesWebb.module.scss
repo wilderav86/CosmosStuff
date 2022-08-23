@@ -17,3 +17,13 @@
   background-color: "black";
   position: relative;
 }
+
+.buttonContainer {
+  @include mixins.flex(row, space-around, center);
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.btn {
+  @include mixins.button();
+}

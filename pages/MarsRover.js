@@ -10,10 +10,10 @@ import PageFadeIn from "../animations/PageFadein";
 
 const MarsRover = () => {
   //Used for MarsSearch Dropdown component
-  const [selectedCamera, setSelectedCamera] = useState("FRONT_HAZCAM_LEFT_A");
+  const [selectedCamera, setSelectedCamera] = useState("NAVCAM_LEFT");
 
   //Used for MarsSearch Searchbar Component
-  const defaultSol = 1;
+  const defaultSol = 535;
   const [sol, setSol] = useState(defaultSol);
 
   //Fetch parameters
@@ -40,7 +40,7 @@ const MarsRover = () => {
   };
 
   const [marsPhotos, roverData] = data;
-
+  console.log(roverData);
   //Photo error handling
   const photoArrayEmpty =
     "Oops. It doesn't look like this camera was used on this sol. Choose a different camera, or enter a different sol.";

@@ -26,21 +26,34 @@
 }
 
 .photoContainer {
-  @include mixins.flex(column, center, center);
+  // @include mixins.flex(column, center, center);
+  display: grid;
+  // padding: 4%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 90vw;
+  height: auto;
+  padding-bottom: 3rem;
+  // @include mixins.breakpoint(mobile) {
+  //   padding: 0;
+  // }
 }
 
 .imageContainer {
   position: relative;
-  height: 80vh;
-  width: 90vw;
+  // height: 20vh;
+  // width: 40vw;
+  aspect-ratio: 4 / 3;
+  align-self: center;
+  justify-self: center;
 
-  @include mixins.breakpoint(medium) {
-    height: 50vh;
-  }
-  @include mixins.breakpoint(mobile) {
-    height: 40vh;
-  }
-  @include mixins.breakpoint(small) {
-    height: 35vh;
-  }
+  // @include mixins.breakpoint(medium) {
+  //   height: 50vh;
+  // }
+  // @include mixins.breakpoint(mobile) {
+  //   height: 40vh;
+  // }
+  // @include mixins.breakpoint(small) {
+  //   height: 35vh;
+  // }
 }
