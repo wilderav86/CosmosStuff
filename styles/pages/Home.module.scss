@@ -40,7 +40,7 @@
 
 .bannerText {
   @include mixins.breakpoint(mobile) {
-    height: 80%;
+    // height: 80%;
   }
 }
 
