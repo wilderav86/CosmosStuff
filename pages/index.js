@@ -62,9 +62,9 @@ export default function Home() {
             />
           </div>
           <div className={styles.bannerText}>
-            <h1 className={styles.header}>COSMOS STUFF</h1>
+            <h1 className={styles.header}>SPACE JUNK</h1>
             <h2 className={styles.description}>
-              an aggregate of cool space info
+              an aggregate of cool cosmos info
             </h2>
           </div>
         </div>
