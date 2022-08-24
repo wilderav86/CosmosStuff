@@ -15,6 +15,7 @@
   height: 93vh;
   width: 100vw;
   background-color: colors.$dark;
+  overflow: hidden;
 
   @include mixins.breakpoint(medium) {
     @include mixins.flex(column, center, center);
@@ -82,6 +83,10 @@
     height: auto;
     overflow-y: visible;
   }
+}
+
+.body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 .titleText {

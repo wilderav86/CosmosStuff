@@ -4,6 +4,7 @@ import AnimateButton from "../../animations/AnimateButton";
 import Hamburger from "./Hamburger";
 import styles from "./Navbar.module.scss";
 import { useDetectOutsideClick } from "../../hooks";
+import classnames from "classnames";
 
 const Navbar = () => {
   const navRef = useRef(null);
@@ -42,7 +43,7 @@ const Navbar = () => {
       </div>
     );
   });
-
+  // visible ? styles.container : styles.collapsed
   return (
     <nav className={styles.container} ref={navRef}>
       <div className={styles.desktopLinks}>{renderNavLinks}</div>

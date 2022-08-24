@@ -4,9 +4,7 @@ import AnimateButton from "../../animations/AnimateButton";
 import styles from "./Navbar.module.scss";
 import classnames from "classnames"; //necessary for css transition to work with conditional classes in css modules.
 
-const Hamburger = ({ renderNavLinks, expanded, setExpanded, hamburgerRef }) => {
-  console.log("expanded", hamburgerRef);
-
+const Hamburger = ({ renderNavLinks, expanded, setExpanded }) => {
   return (
     <div className={styles.hamburgerContainer}>
       <div className={styles.hamburger}>
