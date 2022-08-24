@@ -2,6 +2,23 @@
 @use "/styles/variables/colors";
 @use "/styles/variables/fonts";
 
+.headerContainer {
+  @include mixins.flex(column, center, center);
+}
+
+.title {
+  @include mixins.pageTitle();
+}
+
+.pageInfo {
+  @include mixins.pageInfo();
+  width: 80%;
+}
+
+.link {
+  @include mixins.link();
+}
+
 .imagesContainer {
   display: grid;
   padding: 4%;

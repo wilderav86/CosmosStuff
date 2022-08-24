@@ -43,6 +43,22 @@ const JamesWebb = () => {
 
   return (
     <div className={styles.pageContainer}>
+      <div className={styles.headerContainer}>
+        <h2 className={styles.title}>JAMES WEBB SPACE TELESCOPE</h2>
+        <p className={styles.pageInfo}>
+          The James Webb Space Telescope (JWST) is a space telescope designed
+          primarily to conduct infrared astronomy. As the largest optical
+          telescope in space, its high infrared resolution and sensitivity allow
+          it to view objects too early, distant, or faint for the Hubble Space
+          Telescope. This is expected to enable a broad range of investigations
+          across the fields of astronomy and cosmology, such as observation of
+          the first stars and the formation of the first galaxies, and detailed
+          atmospheric characterization of potentially habitable exoplanets.{" "}
+          <span className={styles.link}>
+            <a href="https://webbtelescope.org/">Learn More</a>
+          </span>
+        </p>
+      </div>
       <div className={styles.buttonContainer}>
         <AnimateButton>
           <button

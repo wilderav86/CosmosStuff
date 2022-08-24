@@ -12,7 +12,7 @@
   @include mixins.flex(row, center, flex-start);
   position: relative;
   z-index: 1;
-  height: 95vh;
+  height: 93vh;
   width: 100vw;
   background-color: colors.$dark;
 
@@ -25,22 +25,25 @@
 .bannerContainer {
   @include mixins.flex(column, center, center);
   position: relative;
-  height: 95vh;
+  height: 93vh;
   width: 55%;
+  border-right: 1px solid white;
 
   @include mixins.breakpoint(medium) {
     height: 40vh;
-    width: 100%;
+    width: 100vw;
+    border-bottom: 1px solid white;
+    border-right: none;
   }
   @include mixins.breakpoint(mobile) {
     // min-height: 15vh;
-    height: 95vh;
+    height: 87vh;
   }
 }
 
 .bannerText {
   @include mixins.breakpoint(mobile) {
-    // height: 80%;
+    height: 30%;
   }
 }
 
