@@ -18,6 +18,12 @@
   max-width: 80%;
 }
 
+.pageInfo {
+  @include mixins.pageInfo();
+  max-width: 80%;
+  text-align: center;
+}
+
 .imageContainer {
   position: relative;
   height: 80vh;
@@ -27,7 +33,7 @@
     height: 50vh;
   }
   @include mixins.breakpoint(mobile) {
-    height: 40vh;
+    // height: 40vh;
   }
   @include mixins.breakpoint(small) {
     height: 35vh;

@@ -5,7 +5,7 @@ const Loading = () => {
   return (
     <InitialFadeIn>
       <div className={styles.container}>
-        <h1>Loading....</h1>
+        <h1 className={styles.header}>Loading....</h1>
       </div>
     </InitialFadeIn>
   );

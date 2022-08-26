@@ -41,6 +41,12 @@ const APOD = () => {
         ) : (
           <div className={styles.container} key="apod">
             <h2 className={styles.title}>ASTRONOMY PICTURE OF THE DAY</h2>
+            <p className={styles.pageInfo}>
+              Each day a different image or photograph of our fascinating
+              universe is featured, along with a brief explanation written by a
+              professional astronomer. Enter a date in the searchbar to find
+              previous images.
+            </p>
             <SearchBar
               searchTerm={searchDate}
               setSearchTerm={setSearchDate}

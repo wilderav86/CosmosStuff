@@ -25,10 +25,12 @@
 
 .imagesContainer {
   display: grid;
-  padding: 4%;
+  // padding: 4%;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 2;
   @include mixins.breakpoint(mobile) {
     grid-template-columns: repeat(2, 1fr);
   }
