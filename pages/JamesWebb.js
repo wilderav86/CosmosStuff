@@ -39,7 +39,7 @@ const JamesWebb = () => {
     fetchData();
   }, [page]);
 
-  console.log(data);
+  console.log("data", data);
 
   return (
     <div className={styles.pageContainer}>
@@ -81,6 +81,7 @@ const JamesWebb = () => {
       ) : (
         <div className={styles.imagesContainer}>
           {data.body.map((image, key) => {
+            console.log("image", image);
             return (
               <Zoom key={key}>
                 <div className={styles.imageContainer}>

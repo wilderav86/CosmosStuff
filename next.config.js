@@ -6,6 +6,7 @@ const nextConfig = {
       "https://api.nasa.gov",
       "https://api.jwstapi.com",
       "stpubdata-jwst.stsci.edu",
+      "jwst-api-cdn.nyc3.cdn.digitaloceanspaces.com",
     ],
   },
   env: {
