@@ -1,34 +1,42 @@
+# Space Junk
+
+url: https://www.spacejunk.me
+
+Space Junk is a collection of widgets designed to display interesting space information from various APIs. I built it partly because I love all things space, but mostly to practice working with sass, retrieving and manipulation data from APIs, and writing custom hooks. More widgets to come!
+
+## Technologies Used
+
+- [Next.js](https://nextjs.org/)
+- [Sass](https://sass-lang.com/) - Created mixins and variables to make styling quick and scalable
+- [CSS modules](https://github.com/css-modules/css-modules) - Styling is broken down and scoped to each individual component.
+- deployed to Netlify
+
+## Widgets
+
+### Astronomy Picture of the Day
+
+This widget uses NASA's APOD API to display a fascinating image every day curated by actual astronomers. It also features a searchbar to see pictures from previous dates all the way back to its inception on July 16, 1995!
+
+- [APOD API documentation](https://github.com/nasa/apod-api)
+
+### Mars Rover Photos
+
+Photos taken by the Mars Perseverence Rover updated daily. It uses NASA's Mars Rover Photos API and features a dropdown menu to query by the different cameras onboard the rover along with a searchbar to query by sol (Martian day).
+
+- [Mars Rover API documentation](https://github.com/chrisccerami/mars-photo-api)
+
+### ISS Tracker
+
+An International Space Station tracker that gives you the real time position, speed, and altitude of the ISS updated every 3 seconds. The map is provided by the React-Map-GL library and Mapbox. ISS data is provided by the Where The ISS At? API.
+
+- [React-Map-GL documentation](https://visgl.github.io/react-map-gl/docs)
+
+- [Where The ISS At? documentation](https://wheretheiss.at/w/developer)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+### James Webb Space Telescope
 
-First, run the development server:
+Uses the JWST API by [Kyle Redelinghuys](https://www.ksred.com/) to fetch paginated pages of raw pictures from the James Webb Telescope. A planned feature is to display finished images from the JWST.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[JWST API documentation](https://documenter.getpostman.com/view/10808728/UzQyphjT)

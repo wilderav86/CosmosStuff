@@ -59,6 +59,7 @@ const JamesWebb = () => {
           </span>
         </p>
       </div>
+      <h2 className={styles.page}>Current Page: {page}</h2>
       <div className={styles.buttonContainer}>
         <AnimateButton>
           <button
@@ -67,8 +68,9 @@ const JamesWebb = () => {
             onClick={() => setPage((page -= 1))}
           >
             Back
-          </button>{" "}
+          </button>
         </AnimateButton>
+
         <AnimateButton>
           <button className={styles.btn} onClick={() => setPage((page += 1))}>
             Next

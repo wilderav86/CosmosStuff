@@ -25,6 +25,11 @@
   }
 }
 
+.page {
+  @include mixins.pageInfo();
+  @include mixins.flex(row, center, center);
+}
+
 .link {
   @include mixins.link();
 }
