@@ -9,7 +9,19 @@ Space Junk is a collection of widgets designed to display interesting space info
 - [Next.js](https://nextjs.org/)
 - [Sass](https://sass-lang.com/) - Created mixins and variables to make styling quick and scalable
 - [CSS modules](https://github.com/css-modules/css-modules) - Styling is broken down and scoped to each individual component.
-- deployed to Netlify
+- deployed to [Netlify](https://www.netlify.com/)
+
+### Other libraries
+
+- [React Medium Image Zoom](https://www.npmjs.com/package/react-medium-image-zoom) - The original medium.com-inspired image zooming library for React.
+
+- [Classnames](https://www.npmjs.com/package/classnames) - A simple JavaScript utility for conditionally joining classNames together.
+
+- [Framer-Motion](https://www.npmjs.com/package/framer-motion) - An open source motion library for React, made by Framer.
+
+- [React-Icons](https://react-icons.github.io/react-icons/) - Include popular icons in your React projects easily with react-icons, which utilizes ES6 imports that allows you to include only the icons that your project is using.
+
+- [React-Map-GL](https://visgl.github.io/react-map-gl/docs) - react-map-gl is a suite of React components designed to provide a React API for Mapbox GL JS-compatible libraries. More information in the online documentation.
 
 ## Widgets
 
