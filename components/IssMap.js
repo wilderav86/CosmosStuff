@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Map, { Marker } from "react-map-gl";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import "mapbox-gl/dist/mapbox-gl.css";
 

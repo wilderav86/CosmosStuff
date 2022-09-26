@@ -2,7 +2,17 @@
 
 url: https://www.spacejunk.me
 
-Space Junk is a collection of widgets designed to display interesting space information from various APIs. I built it partly because I love all things space, but mostly to practice working with sass, retrieving and manipulation data from APIs, and writing custom hooks. More widgets to come!
+Space Junk is a collection of widgets designed to display interesting space information from various APIs. I built it partly because I love all things space, but mostly to practice working with sass, retrieval and manipulation of data from APIs, and writing custom hooks. More widgets to come!
+
+## Installation
+
+```sh
+  git clone
+
+  npm i
+
+  npm run dev
+```
 
 ## Technologies Used
 
@@ -52,3 +62,4 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 Uses the JWST API by [Kyle Redelinghuys](https://www.ksred.com/) to fetch paginated pages of raw pictures from the James Webb Telescope. A planned feature is to display finished images from the JWST.
 
 [JWST API documentation](https://documenter.getpostman.com/view/10808728/UzQyphjT)
+P

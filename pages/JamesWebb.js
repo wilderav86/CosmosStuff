@@ -54,6 +54,8 @@ const JamesWebb = () => {
           across the fields of astronomy and cosmology, such as observation of
           the first stars and the formation of the first galaxies, and detailed
           atmospheric characterization of potentially habitable exoplanets.{" "}
+        </p>
+        <p className={styles.pageInfo}>
           <span className={styles.link}>
             <a href="https://webbtelescope.org/">Learn More</a>
           </span>
